@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head> <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q8Q3M0PMK1"></script>
+    <script> window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-Q8Q3M0PMK1'); </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bioayurix - Premium Ayurvedic Health Products</title>
+    <meta name="description"
+        content="Premium Ayurvedic health products byTrivedatatva - crafted with natural ingredients and modern research.">
+    <meta name="google-site-verification" content="zO2DP88_5X6q6eCx6eRiUC7hc4pgQ2rIsZWmVSeRHEs" /> <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/static/img/icon.png"> <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script> <!-- Font Awesome 6.5.1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <style>
+        /* review section styleing  */
+        .reviewCard {
+            min-width: 260px;
+            background: white;
+            border-radius: 18px;
+            padding: 24px;
+            border: 1px solid #f1f1f1;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-800">
+
+    <!-- ================= PREMIUM MEDICAL NAVBAR ================= -->
+    <header class="fixed top-0 left-0 w-full z-[9999] bg-white/95 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 h-[72px] flex items-center justify-between"> <!-- LOGO --> <a
+                href="home.html" class="flex items-center gap-3"> <img
+                    src="https://assets.pharmeasy.in/apothecary/images/logo_big.svg?dim=256x0"
+                    class="w-18 h-18 object-contain">
+                <!-- <span class="text-[20px] font-bold tracking-wide text-slate-800"> Trivedatatva </span> --> </a>
+            <!-- DESKTOP MENU -->
+            <nav class="hidden lg:flex items-center gap-10 text-[15px] font-medium text-slate-700"> <a href="home.html"
+                    class="hover:text-teal-600 transition"> Home </a> <!-- PRODUCTS DROPDOWN -->
+                <div class="relative group"> <button class="flex items-center gap-2 hover:text-teal-600 transition">
+                        Products <svg class="w-4 h-4 transition group-hover:rotate-180" fill="none"
+                            stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                        </svg> </button> <!-- DROPDOWN -->
+                    <div
+                        class="absolute left-0 top-[120%] w-64 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition duration-300">
+                        <div class="p-2"> <a href="product-detailed.html"
+                                class="flex items-start gap-3 p-3 rounded-lg hover:bg-teal-50 transition">
+                                <div
+                                    class="w-8 h-8 rounded-md bg-teal-100 flex items-center justify-center text-teal-600">
+                                    <i class="fa-solid fa-lungs"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-slate-800"> PulmoDetox </p>
+                                    <p class="text-xs text-slate-500"> Lung detox & respiratory support </p>
+                                </div>
+                            </a> <a href="product-detailed.html"
+                                class="flex items-start gap-3 p-3 rounded-lg hover:bg-teal-50 transition">
+                                <div
+                                    class="w-8 h-8 rounded-md bg-teal-100 flex items-center justify-center text-teal-600">
+                                    <i class="fa-solid fa-weight-scale"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-slate-800"> Trimxa </p>
+                                    <p class="text-xs text-slate-500"> Metabolism & weight management </p>
+                                </div>
+                            </a> </div>
+                    </div>
+                </div> <a href="about.html" class="hover:text-teal-600 transition"> About </a>
+                <a href="contact.html" class="hover:text-teal-600 transition"> Contact </a>
+            </nav> <!-- RIGHT ACTIONS -->
+            <div class="flex items-center gap-5"> <!-- TRACK ORDER --> <a href="/orders/track/"
+                    class="hidden md:flex items-center gap-2 text-[14px] font-medium text-slate-700 hover:text-teal-600 transition">
+                    <i class="fa-solid fa-truck-fast"></i> Track Order </a> <!-- ACCOUNT --> <a href="/account/login/"
+                    class="text-lg text-slate-700 hover:text-teal-600 transition"> <i class="fa-regular fa-user"></i>
+                </a> <!-- CART --> <a href="/cart/"
+                    class="text-lg text-slate-700 hover:text-teal-600 transition relative"> <i
+                        class="fa-solid fa-cart-shopping"></i> </a> <!-- MOBILE MENU BUTTON --> <button
+                    id="mobileMenuBtn" class="lg:hidden text-xl text-slate-700"> <i class="fa-solid fa-bars"></i>
+                </button> </div>
+        </div>
+    </header> <!-- ================= MOBILE MENU ================= -->
+    <div id="mobileMenu"
+        class="fixed top-0 right-0 w-[320px] h-full bg-white shadow-2xl z-[9999] translate-x-full transition-transform duration-400">
+        <!-- HEADER -->
+        <div class="flex items-center justify-between p-6 border-b">
+            <h3 class="font-semibold text-slate-800"> Menu </h3> <button id="closeMobileMenu" class="text-xl"> <i
+                    class="fa-solid fa-xmark"></i> </button>
+        </div> <!-- MENU ITEMS -->
+        <div class="flex flex-col text-[15px] text-slate-700"> <a href="/" class="px-6 py-4 border-b hover:bg-slate-50">
+                Home </a>
+            <div class="border-b">
+                <p class="px-6 py-4 font-semibold text-slate-900"> Products </p>
+                <div class="flex flex-col text-slate-600"> <a href="/products/pulmodetox/"
+                        class="px-10 py-3 hover:text-teal-600"> PulmoDetox </a> <a href="/products/trimxa/"
+                        class="px-10 py-3 hover:text-teal-600"> Trimxa </a> </div>
+            </div> <a href="/about/" class="px-6 py-4 border-b hover:bg-slate-50"> About </a> <a href="/contact/"
+                class="px-6 py-4 border-b hover:bg-slate-50"> Contact </a> <a href="/orders/track/"
+                class="px-6 py-4 border-b hover:bg-slate-50"> Track Order </a> <a href="/account/login/"
+                class="px-6 py-4 hover:bg-slate-50"> Login / Register </a>
+        </div>
+    </div> <!-- MOBILE OVERLAY -->
+    <div id="mobileOverlay" class="fixed inset-0 bg-black/40 opacity-0 invisible transition z-[9998]"> </div>
+    <!-- Main Content -->
+
+    <!-- ================= PRODUCT SHOWCASE SECTION ================= -->
+    <section class="bg-gradient-to-b from-white to-teal-50/40 mt-16 py-16 lg:py-24">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-start">
+
+            <!-- ================= LEFT: IMAGE GALLERY ================= -->
+            <div class="w-full">
+                <!-- Main Image Card -->
+                <div class="relative bg-white rounded-3xl shadow-xl p-4 lg:p-8 overflow-hidden">
+                    <!-- Soft medical glow -->
+                    <div class="absolute inset-0 bg-white rounded-3xl"></div>
+
+                    <!-- Image Wrapper -->
+                    <div class="relative w-full aspect-square lg:aspect-auto lg:h-[420px]">
+                        <img id="mainImage" src="/media/products/10.jpg" alt="Bioayurix PulmoDetox"
+                            class="w-full h-full object-contain transition-opacity duration-300 ease-in-out" />
+                    </div>
+                </div>
+
+                <!-- Thumbnails -->
+                <div class="flex gap-4 mt-6 justify-center lg:justify-start flex-wrap">
+
+                    <img src="/static/img/10.jpg" alt="Bioayurix PulmoDetox - Image 1" class="thumb w-20 h-20 object-cover rounded-xl cursor-pointer transition duration-200
+                        border-2 border-teal-600" />
+
+                    <img src="/static/img/7.jpg" alt="Bioayurix PulmoDetox - Image 2" class="thumb w-20 h-20 object-cover rounded-xl cursor-pointer transition duration-200
+                        border border-gray-200 hover:border-teal-400" />
+
+                    <img src="/static/img/8.jpg" alt="Bioayurix PulmoDetox - Image 3" class="thumb w-20 h-20 object-cover rounded-xl cursor-pointer transition duration-200
+                        border border-gray-200 hover:border-teal-400" />
+
+                    <img src="/static/img/9.jpg" alt="Bioayurix PulmoDetox - Image 4" class="thumb w-20 h-20 object-cover rounded-xl cursor-pointer transition duration-200
+                        border border-gray-200 hover:border-teal-400" />
+
+                </div>
+            </div>
+            <!-- ================= END IMAGE GALLERY ================= -->
+
+            <!-- ================= RIGHT: PRODUCT DETAILS ================= -->
+            <div>
+                <!-- Medical Trust Badge -->
+
+                <span class="inline-block bg-teal-100 text-teal-700 text-sm font-semibold px-4 py-1 rounded-full mb-4">
+                    Doctor Recommended • GMP Certified • ISO Approved
+                </span>
+
+
+                <!-- Product Title -->
+                <h1 class="text-3xl lg:text-5xl font-extrabold text-gray-900 leading-tight">
+                    Trivedatatva PulmoDetox
+                </h1>
+
+                <!-- Description -->
+                <p class="mt-5 text-lg text-gray-600 leading-relaxed">
+                    Clinically tested herbal formulation designed to support respiratory health, detoxify lungs, and
+                    improve breathing using scientifically validated Ayurvedic ingredients.
+                </p>
+
+                <!-- Rating -->
+                <div class="flex items-center gap-3 mt-6">
+                    <div class="flex text-yellow-400 text-lg">
+
+
+                        <span>&#9733;</span>
+
+
+
+                        <span>&#9733;</span>
+
+
+
+                        <span>&#9733;</span>
+
+
+
+                        <span>&#9733;</span>
+
+
+
+                        <span class="text-gray-300">&#9733;</span>
+
+
+                    </div>
+                    <span class="text-gray-600 text-sm">(1248 Verified Reviews)</span>
+                </div>
+
+                <!-- Feature Highlights -->
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
+
+                    <div class="flex gap-3">
+                        <div
+                            class="w-10 h-10 flex items-center justify-center rounded-full bg-teal-100 text-teal-600 shrink-0">
+                            &#10003;
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Boosts Immunity</h4>
+                            <p class="text-sm text-gray-500">Strengthens natural defense system.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <div
+                            class="w-10 h-10 flex items-center justify-center rounded-full bg-teal-100 text-teal-600 shrink-0">
+                            &#10003;
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">100% Herbal</h4>
+                            <p class="text-sm text-gray-500">Pure Ayurvedic extracts.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <div
+                            class="w-10 h-10 flex items-center justify-center rounded-full bg-teal-100 text-teal-600 shrink-0">
+                            &#10003;
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">No Side Effects</h4>
+                            <p class="text-sm text-gray-500">Safe for long-term use.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <div
+                            class="w-10 h-10 flex items-center justify-center rounded-full bg-teal-100 text-teal-600 shrink-0">
+                            &#10003;
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Clinically Tested</h4>
+                            <p class="text-sm text-gray-500">Scientifically validated formula.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- Price -->
+                <div class="mt-10 flex items-center gap-6">
+                    <span class="text-4xl font-bold text-gray-900">&#8377;499.00</span>
+                </div>
+
+                <!-- Buttons -->
+                <div class="mt-8 flex flex-col sm:flex-row gap-4">
+                    <form method="post" action="/cart/add/1/">
+                        <input type="hidden" name="csrfmiddlewaretoken"
+                            value="e9lsJSvvg2wgonmkXqEB7XNwXILmfarruhXl0KeBAoePk7H4ptfoGRBYuYXYnOsf">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit"
+                            class="bg-teal-600 hover:bg-teal-700 text-white px-10 py-3 rounded-xl font-semibold shadow-lg transition">
+                            Add to Cart
+                        </button>
+                    </form>
+
+                    <form method="post" action="/cart/add/1/">
+                        <input type="hidden" name="csrfmiddlewaretoken"
+                            value="e9lsJSvvg2wgonmkXqEB7XNwXILmfarruhXl0KeBAoePk7H4ptfoGRBYuYXYnOsf">
+                        <input type="hidden" name="quantity" value="1">
+                        <input type="hidden" name="buy_now" value="1">
+                        <button type="submit"
+                            class="border border-gray-300 hover:border-teal-600 hover:text-teal-600 px-10 py-3 rounded-xl font-semibold transition text-center">
+                            Buy Now
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Trust Notes -->
+                <div class="mt-8 text-sm text-gray-500 space-y-1">
+                    <p>&#10003; Lab Tested for Purity</p>
+                    <p>&#10003; Manufactured in GMP Certified Facility</p>
+                    <p>&#10003; Fast &amp; Secure Delivery</p>
+                </div>
+            </div>
+            <!-- ================= END PRODUCT DETAILS ================= -->
+
+        </div>
+    </section>
+    <!-- ================= END PRODUCT SHOWCASE ================= -->
+
+
+    <!-- ================= A+ PREMIUM STORY SECTION ================= -->
+    <section class="bg-gradient-to-b from-white to-teal-50/30 py-20 lg:py-28">
+        <div class="max-w-7xl mx-auto px-6 space-y-28">
+
+            <!-- ================= BLOCK 1: Backed by Science ================= -->
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+                <!-- Content -->
+                <div>
+                    <span class="text-teal-600 font-semibold uppercase tracking-widest text-sm">
+                        Certified Quality
+                    </span>
+
+                    <h2 class="mt-4 text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">
+                        Backed by Science. Powered by Nature.
+                    </h2>
+
+                    <p class="mt-6 text-lg text-gray-600 leading-relaxed">
+                        EveryTrivedatatva capsule is crafted using clinically studied herbal
+                        extracts and manufactured in GMP-certified facilities to guarantee
+                        purity, safety, and consistent effectiveness.
+                    </p>
+
+                    <!-- Premium Feature Cards -->
+                    <div class="mt-10 grid sm:grid-cols-2 gap-6">
+                        <div class="bg-white rounded-2xl p-6 shadow-md border border-teal-50">
+                            <h4 class="font-semibold text-gray-900">Lab Tested</h4>
+                            <p class="text-sm text-gray-600 mt-2">
+                                Each batch verified for potency and contamination-free safety.
+                            </p>
+                        </div>
+
+                        <div class="bg-white rounded-2xl p-6 shadow-md border border-teal-50">
+                            <h4 class="font-semibold text-gray-900">GMP Certified</h4>
+                            <p class="text-sm text-gray-600 mt-2">
+                                Produced under strict pharmaceutical-grade standards.
+                            </p>
+                        </div>
+
+                        <div class="bg-white rounded-2xl p-6 shadow-md border border-teal-50">
+                            <h4 class="font-semibold text-gray-900">ISO Approved</h4>
+                            <p class="text-sm text-gray-600 mt-2">
+                                International quality management compliance.
+                            </p>
+                        </div>
+
+                        <div class="bg-white rounded-2xl p-6 shadow-md border border-teal-50">
+                            <h4 class="font-semibold text-gray-900">Safe Formulation</h4>
+                            <p class="text-sm text-gray-600 mt-2">
+                                No harmful chemicals or synthetic additives.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image -->
+                <div>
+                    <div class="rounded-3xl overflow-hidden shadow-xl">
+                        <div class="aspect-square">
+
+                            <img src="/static/img/7.jpg" alt="Quality Assurance" class="w-full h-full object-cover" />
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ================= BLOCK 2: Strengthen Immunity ================= -->
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+                <!-- Image -->
+                <div>
+                    <div class="rounded-3xl overflow-hidden shadow-xl">
+                        <div class="aspect-square">
+
+                            <img src="/static/img/9.jpg" alt="Natural Immunity" class="w-full h-full object-cover" />
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div>
+                    <span class="text-teal-600 font-semibold uppercase tracking-widest text-sm">
+                        Natural Immunity
+                    </span>
+
+                    <h2 class="mt-4 text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">
+                        Strengthen Your Immunity Naturally
+                    </h2>
+
+                    <p class="mt-6 text-lg text-gray-600 leading-relaxed">
+                        Trivedatatva Advanced Immunity Formula blends ancient Ayurvedic wisdom
+                        with modern research to enhance immune resilience, improve vitality,
+                        and support long-term wellness.
+                    </p>
+
+                    <!-- Detailed Bullet Section -->
+                    <div class="mt-10 space-y-5 text-gray-700">
+                        <div class="flex gap-4">
+                            <div
+                                class="w-8 h-8 flex items-center justify-center rounded-full bg-teal-100 text-teal-600 shrink-0">
+                                &#10003;
+                            </div>
+                            <p>Supports natural immune response &amp; cellular protection.</p>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div
+                                class="w-8 h-8 flex items-center justify-center rounded-full bg-teal-100 text-teal-600 shrink-0">
+                                &#10003;
+                            </div>
+                            <p>Reduces oxidative stress and inflammation.</p>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div
+                                class="w-8 h-8 flex items-center justify-center rounded-full bg-teal-100 text-teal-600 shrink-0">
+                                &#10003;
+                            </div>
+                            <p>Improves stamina, energy &amp; daily productivity.</p>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div
+                                class="w-8 h-8 flex items-center justify-center rounded-full bg-teal-100 text-teal-600 shrink-0">
+                                &#10003;
+                            </div>
+                            <p>100% herbal formula with no synthetic additives.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- ================= END A+ STORY SECTION ================= -->
+
+
+    <!-- ================= INGREDIENTS SECTION ================= -->
+
+    <section class="bg-white py-20 lg:py-8">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <!-- Section Heading -->
+            <div class="text-center max-w-3xl mx-auto">
+                <h2 class="text-3xl lg:text-4xl font-extrabold text-gray-900">
+                    Scientifically Selected Ingredients
+                </h2>
+                <p class="mt-4 text-gray-600 text-lg">
+                    Backed by Science. Powered by Nature.
+                    Each ingredient is carefully chosen for its clinically proven
+                    benefits and powerful health-support properties.
+                </p>
+            </div>
+
+            <!-- Ingredient Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 mt-16">
+
+                <div class="bg-teal-50/40 rounded-3xl p-8 shadow-sm hover:shadow-lg transition">
+                    <h3 class="text-xl font-bold text-gray-900">Ashwagandha</h3>
+                    <p class="mt-3 text-gray-600">
+                        Helps reduce stress levels and enhances immune system response by supporting adrenal balance.
+                    </p>
+
+                    <span class="block mt-4 text-sm text-teal-600 font-semibold">
+                        Clinically Proven Adaptogen
+                    </span>
+
+                </div>
+
+                <div class="bg-teal-50/40 rounded-3xl p-8 shadow-sm hover:shadow-lg transition">
+                    <h3 class="text-xl font-bold text-gray-900">Giloy Extract</h3>
+                    <p class="mt-3 text-gray-600">
+                        Known for its immune-boosting and detoxifying properties, supports long-term wellness.
+                    </p>
+
+                    <span class="block mt-4 text-sm text-teal-600 font-semibold">
+                        Natural Immunity Booster
+                    </span>
+
+                </div>
+
+                <div class="bg-teal-50/40 rounded-3xl p-8 shadow-sm hover:shadow-lg transition">
+                    <h3 class="text-xl font-bold text-gray-900">Turmeric (Curcumin)</h3>
+                    <p class="mt-3 text-gray-600">
+                        Powerful anti-inflammatory compound that supports cellular defense and recovery.
+                    </p>
+
+                    <span class="block mt-4 text-sm text-teal-600 font-semibold">
+                        Anti-Inflammatory Support
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= END INGREDIENTS SECTION ================= -->
+
+
+    <!-- ================= HOW IT WORKS SECTION ================= -->
+
+    <section class="bg-gradient-to-b from-white to-teal-50/40 py-20 lg:py-8">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+
+            <!-- Left: Product Image -->
+            <div class="relative">
+                <div class="absolute inset-0 bg-teal-100/40 blur-3xl rounded-3xl"></div>
+                <img src="/media/products/10.jpg" alt="Bioayurix PulmoDetox" class="relative rounded-3xl" />
+            </div>
+
+            <!-- Right: Steps Content -->
+            <div>
+                <h2 class="text-3xl lg:text-4xl font-extrabold text-gray-900">
+                    How It Works
+                </h2>
+
+                <div class="mt-8 space-y-8">
+
+                    <div class="flex gap-6">
+                        <div class="text-3xl font-bold text-teal-600">
+                            01
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg">Rapid Absorption</h4>
+                            <p class="text-gray-600 mt-2">
+                                Herbal extracts are quickly absorbed into the bloodstream for fast immune activation.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6">
+                        <div class="text-3xl font-bold text-teal-600">
+                            02
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg">Cellular Activation</h4>
+                            <p class="text-gray-600 mt-2">
+                                Active compounds stimulate immune cells to strengthen body defense mechanisms.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6">
+                        <div class="text-3xl font-bold text-teal-600">
+                            03
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg">Long-Term Protection</h4>
+                            <p class="text-gray-600 mt-2">
+                                Regular usage supports sustained immunity and overall vitality.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= END HOW IT WORKS ================= -->
+
+    <!--======================== CTA BUTTON SECTION========================  -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div
+                class="bg-[#f0f9f6] border border-teal-100 rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
+
+                <div class="text-center md:text-left">
+                    <h2 class="text-2xl md:text-3xl font-bold text-slate-900">Get 30% Off Your First Order</h2>
+                    <p class="text-teal-700 font-medium mt-1">Authentic Ayurvedic care, now more accessible.</p>
+                    <p class="text-gray-500 text-sm mt-4 italic">Use Coupon Code: <span
+                            class="font-bold text-slate-900 select-all tracking-wider">PURE30</span></p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+                    <a href="/products/"
+                        class="bg-teal-600 hover:bg-teal-700 text-white font-bold px-8 py-3 rounded-lg text-center transition">
+                        Browse Products
+                    </a>
+                    <a href="/contact/"
+                        class="bg-white border border-gray-200 text-slate-700 font-bold px-8 py-3 rounded-lg text-center hover:bg-gray-50 transition">
+                        Free Consultation
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= PREMIUM FOOTER SECTION : START ================= -->
+    <footer class="bg-slate-950 text-slate-400 pt-20 pb-10 border-t border-emerald-900/20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-4 gap-14">
+
+                <div>
+                    <a href="/" class="flex items-center gap-3">
+                        <img src="https://assets.pharmeasy.in/apothecary/images/logo_big.svg?dim=256x0"
+                            class="h-10 w-auto brightness-0 invert" alt="Bioayurix">
+                    </a>
+                    <p class="mt-6 text-sm leading-relaxed opacity-80 max-w-sm">
+                        We blend authentic Ayurvedic wisdom with modern scientific research to create safe, natural
+                        and
+                        effective wellness solutions for everyday life.
+                    </p>
+                    <div class="flex gap-3 mt-8">
+                        <a href="#"
+                            class="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center hover:bg-emerald-800 transition-all duration-300">
+                            <i class="fa-brands fa-facebook-f text-white text-sm"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center hover:bg-emerald-800 transition-all duration-300">
+                            <i class="fa-brands fa-instagram text-white text-sm"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center hover:bg-emerald-800 transition-all duration-300">
+                            <i class="fa-brands fa-x-twitter text-white text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-sm uppercase tracking-[0.2em] mb-8">Navigation</h4>
+                    <ul class="space-y-4 text-[14px]">
+                        <li><a href="/" class="hover:text-emerald-400 transition">Home</a></li>
+                        <li><a href="/products/" class="hover:text-emerald-400 transition">Products</a></li>
+                        <li><a href="/about/" class="hover:text-emerald-400 transition">About Us</a></li>
+                        <li><a href="/contact/" class="hover:text-emerald-400 transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-sm uppercase tracking-[0.2em] mb-8">Assistance</h4>
+                    <ul class="space-y-4 text-[14px]">
+                        <li><a href="/privacy-policy/" class="hover:text-emerald-400 transition">Privacy Policy</a>
+                        </li>
+                        <li><a href="/terms-conditions/" class="hover:text-emerald-400 transition">Terms &
+                                Conditions</a></li>
+                        <li><a href="/shipping-policy/" class="hover:text-emerald-400 transition">Shipping
+                                Policy</a>
+                        </li>
+                        <li><a href="/refund-policy/" class="hover:text-emerald-400 transition">Refund Policy</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-sm uppercase tracking-[0.2em] mb-8">Reach Us</h4>
+                    <ul class="space-y-5 text-[14px]">
+                        <li class="flex gap-4">
+                            <i class="fa-solid fa-location-dot text-emerald-500 mt-1"></i>
+                            <span>New Delhi, India</span>
+                        </li>
+                        <li class="flex gap-4">
+                            <i class="fa-solid fa-envelope text-emerald-500 mt-1"></i>
+                            <span class="break-all">support@bioayurix.com</span>
+                        </li>
+                        <li class="flex gap-4">
+                            <i class="fa-solid fa-phone text-emerald-500 mt-1"></i>
+                            <span>+91 98765 43210</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                class="border-t border-white/5 mt-16 pt-10 flex flex-col md:flex-row items-center justify-between gap-8">
+                <div
+                    class="flex flex-wrap justify-center gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-500">
+                    <span class="flex items-center gap-2">
+                        <i class="fa-solid fa-leaf text-emerald-600 text-sm"></i> 100% Ayurvedic
+                    </span>
+                    <span class="flex items-center gap-2">
+                        <i class="fa-solid fa-flask text-emerald-600 text-sm"></i> Lab Certified
+                    </span>
+                    <span class="flex items-center gap-2">
+                        <i class="fa-solid fa-shield-heart text-emerald-600 text-sm"></i> Clinical Grade
+                    </span>
+                </div>
+                <p class="text-[12px] text-slate-600 font-medium tracking-wide">
+                    © 2026 BIOAYURIX. ALL RIGHTS RESERVED.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= PREMIUM FOOTER SECTION :END ================= -->
+
+
+    <!-- Sidebar JS -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const sidebar = document.getElementById("sidebar");
+            const overlay = document.getElementById("overlay");
+            const openBtn = document.getElementById("openSidebar");
+            const closeBtn = document.getElementById("closeSidebar");
+
+            if (openBtn && sidebar && overlay && closeBtn) {
+                openBtn.addEventListener("click", function () {
+                    sidebar.classList.remove("translate-x-full");
+                    overlay.classList.remove("opacity-0", "invisible");
+                    overlay.classList.add("opacity-100", "visible");
+                });
+
+                closeBtn.addEventListener("click", function () {
+                    sidebar.classList.add("translate-x-full");
+                    overlay.classList.add("opacity-0", "invisible");
+                    overlay.classList.remove("opacity-100", "visible");
+                });
+
+                overlay.addEventListener("click", function () {
+                    sidebar.classList.add("translate-x-full");
+                    overlay.classList.add("opacity-0", "invisible");
+                    overlay.classList.remove("opacity-100", "visible");
+                });
+            }
+
+            // Auto-dismiss Django messages after 5 seconds
+            var messages = document.querySelectorAll(".message-alert");
+            messages.forEach(function (msg) {
+                setTimeout(function () {
+                    msg.style.opacity = "0";
+                    msg.style.transform = "translateX(100%)";
+                    setTimeout(function () {
+                        msg.remove();
+                    }, 300);
+                }, 5000);
+            });
+        });
+    </script>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const mainImage = document.getElementById("mainImage");
+            const thumbs = document.querySelectorAll(".thumb");
+
+            thumbs.forEach(function (thumb) {
+                thumb.addEventListener("click", function () {
+                    // Fade out
+                    mainImage.style.opacity = 0;
+
+                    setTimeout(function () {
+                        mainImage.src = thumb.src;
+                        mainImage.style.opacity = 1;
+                    }, 150);
+
+                    // Reset all thumbnail borders
+                    thumbs.forEach(function (t) {
+                        t.classList.remove("border-2", "border-teal-600");
+                        t.classList.add("border", "border-gray-200");
+                    });
+
+                    // Highlight clicked thumbnail
+                    thumb.classList.remove("border", "border-gray-200");
+                    thumb.classList.add("border-2", "border-teal-600");
+                });
+            });
+        });
+    </script>
+
+</body>
+<script type="text/javascript">
+    (function (c, l, a, r, i, t, y) {
+        c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+        t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "vn9oee5iep");
+</script>
+
+</html>

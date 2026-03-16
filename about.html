@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head> <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q8Q3M0PMK1"></script>
+    <script> window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-Q8Q3M0PMK1'); </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bioayurix - Premium Ayurvedic Health Products</title>
+    <meta name="description"
+        content="Premium Ayurvedic health products byTrivedatatva - crafted with natural ingredients and modern research.">
+    <meta name="google-site-verification" content="zO2DP88_5X6q6eCx6eRiUC7hc4pgQ2rIsZWmVSeRHEs" /> <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/static/img/icon.png"> <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script> <!-- Font Awesome 6.5.1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <style>
+        /* review section styleing  */
+        .reviewCard {
+            min-width: 260px;
+            background: white;
+            border-radius: 18px;
+            padding: 24px;
+            border: 1px solid #f1f1f1;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-800">
+
+    <!-- ================= PREMIUM MEDICAL NAVBAR ================= -->
+    <header class="fixed top-0 left-0 w-full z-[9999] bg-white/95 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 h-[72px] flex items-center justify-between"> <!-- LOGO --> <a
+                href="home.html" class="flex items-center gap-3"> <img
+                    src="https://assets.pharmeasy.in/apothecary/images/logo_big.svg?dim=256x0"
+                    class="w-18 h-18 object-contain">
+                <!-- <span class="text-[20px] font-bold tracking-wide text-slate-800"> Trivedatatva </span> --> </a>
+            <!-- DESKTOP MENU -->
+            <nav class="hidden lg:flex items-center gap-10 text-[15px] font-medium text-slate-700"> <a href="home.html"
+                    class="hover:text-teal-600 transition"> Home </a> <!-- PRODUCTS DROPDOWN -->
+                <div class="relative group"> <button class="flex items-center gap-2 hover:text-teal-600 transition">
+                        Products <svg class="w-4 h-4 transition group-hover:rotate-180" fill="none"
+                            stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                        </svg> </button> <!-- DROPDOWN -->
+                    <div
+                        class="absolute left-0 top-[120%] w-64 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition duration-300">
+                        <div class="p-2"> <a href="product-detailed.html"
+                                class="flex items-start gap-3 p-3 rounded-lg hover:bg-teal-50 transition">
+                                <div
+                                    class="w-8 h-8 rounded-md bg-teal-100 flex items-center justify-center text-teal-600">
+                                    <i class="fa-solid fa-lungs"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-slate-800"> PulmoDetox </p>
+                                    <p class="text-xs text-slate-500"> Lung detox & respiratory support </p>
+                                </div>
+                            </a> <a href="product-detailed.html"
+                                class="flex items-start gap-3 p-3 rounded-lg hover:bg-teal-50 transition">
+                                <div
+                                    class="w-8 h-8 rounded-md bg-teal-100 flex items-center justify-center text-teal-600">
+                                    <i class="fa-solid fa-weight-scale"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-slate-800"> Trimxa </p>
+                                    <p class="text-xs text-slate-500"> Metabolism & weight management </p>
+                                </div>
+                            </a> </div>
+                    </div>
+                </div> <a href="about.html" class="hover:text-teal-600 transition"> About </a>
+                <a href="contact.html" class="hover:text-teal-600 transition"> Contact </a>
+            </nav> <!-- RIGHT ACTIONS -->
+            <div class="flex items-center gap-5"> <!-- TRACK ORDER --> <a href="/orders/track/"
+                    class="hidden md:flex items-center gap-2 text-[14px] font-medium text-slate-700 hover:text-teal-600 transition">
+                    <i class="fa-solid fa-truck-fast"></i> Track Order </a> <!-- ACCOUNT --> <a href="/account/login/"
+                    class="text-lg text-slate-700 hover:text-teal-600 transition"> <i class="fa-regular fa-user"></i>
+                </a> <!-- CART --> <a href="/cart/"
+                    class="text-lg text-slate-700 hover:text-teal-600 transition relative"> <i
+                        class="fa-solid fa-cart-shopping"></i> </a> <!-- MOBILE MENU BUTTON --> <button
+                    id="mobileMenuBtn" class="lg:hidden text-xl text-slate-700"> <i class="fa-solid fa-bars"></i>
+                </button> </div>
+        </div>
+    </header> <!-- ================= MOBILE MENU ================= -->
+    <div id="mobileMenu"
+        class="fixed top-0 right-0 w-[320px] h-full bg-white shadow-2xl z-[9999] translate-x-full transition-transform duration-400">
+        <!-- HEADER -->
+        <div class="flex items-center justify-between p-6 border-b">
+            <h3 class="font-semibold text-slate-800"> Menu </h3> <button id="closeMobileMenu" class="text-xl"> <i
+                    class="fa-solid fa-xmark"></i> </button>
+        </div> <!-- MENU ITEMS -->
+        <div class="flex flex-col text-[15px] text-slate-700"> <a href="/" class="px-6 py-4 border-b hover:bg-slate-50">
+                Home </a>
+            <div class="border-b">
+                <p class="px-6 py-4 font-semibold text-slate-900"> Products </p>
+                <div class="flex flex-col text-slate-600"> <a href="/products/pulmodetox/"
+                        class="px-10 py-3 hover:text-teal-600"> PulmoDetox </a> <a href="/products/trimxa/"
+                        class="px-10 py-3 hover:text-teal-600"> Trimxa </a> </div>
+            </div> <a href="/about/" class="px-6 py-4 border-b hover:bg-slate-50"> About </a> <a href="/contact/"
+                class="px-6 py-4 border-b hover:bg-slate-50"> Contact </a> <a href="/orders/track/"
+                class="px-6 py-4 border-b hover:bg-slate-50"> Track Order </a> <a href="/account/login/"
+                class="px-6 py-4 hover:bg-slate-50"> Login / Register </a>
+        </div>
+    </div> <!-- MOBILE OVERLAY -->
+    <div id="mobileOverlay" class="fixed inset-0 bg-black/40 opacity-0 invisible transition z-[9998]"> </div>
+    <!-- Main Content -->
+    <!-- ================= ABOUT HERO SECTION ================= -->
+    <section class="relative mt-[70px] overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1511174511562-5f7f18b874f8?w=1200&auto=format&fit=crop&q=80"
+                class="w-full h-full object-cover" alt="Ayurvedic Science" />
+            <div class="absolute inset-0 bg-slate-900/70"></div>
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-6 py-20 lg:py-28 text-center">
+            <div class="flex justify-center items-center gap-3 text-[11px] font-bold uppercase tracking-[0.2em] mb-6">
+                <a href="/" class="text-white/60 hover:text-teal-400 transition">Home</a>
+                <div class="w-1 h-1 rounded-full bg-emerald-500"></div>
+                <span class="text-teal-400">About Us</span>
+            </div>
+
+            <h1
+                class="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight max-w-4xl mx-auto">
+                Dedicated to Science. <br class="hidden sm:block">
+                <span class="text-emerald-400">Driven by Care.</span>
+            </h1>
+
+            <p class="mt-8 max-w-2xl mx-auto text-base md:text-lg text-white/80 leading-relaxed">
+                At <span class="text-white font-bold">Bioayurix</span>, we combine modern medical research with
+                time-tested Ayurvedic wisdom to deliver safe, effective, and clinically validated wellness solutions.
+            </p>
+
+            <div class="mt-12 flex flex-wrap justify-center items-center gap-8 border-t border-white/10 pt-8">
+                <div class="flex items-center gap-2 text-white/70 text-xs font-bold uppercase tracking-widest">
+                    <i class="fa-solid fa-certificate text-emerald-400"></i> GMP Certified
+                </div>
+                <div class="flex items-center gap-2 text-white/70 text-xs font-bold uppercase tracking-widest">
+                    <i class="fa-solid fa-flask-vial text-emerald-400"></i> Research Based
+                </div>
+                <div class="flex items-center gap-2 text-white/70 text-xs font-bold uppercase tracking-widest">
+                    <i class="fa-solid fa-leaf text-emerald-400"></i> Pure Extracts
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ================= ABOUT STORY SECTION ================= -->
+    <section class="bg-white py-24">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+
+            <div class="relative">
+                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&auto=format&fit=crop"
+                    class="rounded-2xl shadow-sm border border-slate-100 w-full object-cover" alt="Research and Care" />
+
+                <div
+                    class="absolute -bottom-6 -right-6 bg-emerald-800 text-white p-5 rounded-lg shadow-xl hidden md:block border border-emerald-700">
+                    <p class="text-xl font-bold leading-none">Safe & Tested</p>
+                    <p class="text-[10px] uppercase tracking-widest mt-1 opacity-80">Clinical Standard</p>
+                </div>
+            </div>
+
+            <div>
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="text-emerald-800 text-xs font-bold uppercase tracking-[0.2em]">Who We Are</span>
+                    <div class="h-[1px] w-12 bg-emerald-800/30"></div>
+                </div>
+
+                <h2 class="text-3xl lg:text-4xl font-extrabold text-slate-900 leading-tight">
+                    A Modern Medical Brand <br>
+                    <span class="text-emerald-800">Rooted in Ayurveda</span>
+                </h2>
+
+                <div class="mt-8 space-y-5 text-slate-600">
+                    <p class="leading-relaxed">
+                        <strong class="text-slate-900">Bioayurix</strong> was founded with a simple mission — to bridge
+                        the gap between traditional Ayurvedic knowledge and modern clinical research.
+                    </p>
+                    <p class="leading-relaxed text-sm">
+                        Every product is developed using carefully selected herbal ingredients, manufactured in
+                        GMP-certified facilities, and tested for purity and safety. Our commitment is to deliver trusted
+                        healthcare solutions.
+                    </p>
+                </div>
+
+                <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6 pt-10 border-t border-slate-100">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-check text-emerald-800"></i>
+                        <span class="text-xs font-bold text-slate-900 uppercase tracking-wider">Clinically Tested</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-check text-emerald-800"></i>
+                        <span class="text-xs font-bold text-slate-900 uppercase tracking-wider">Research-Backed</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-check text-emerald-800"></i>
+                        <span class="text-xs font-bold text-slate-900 uppercase tracking-wider">GMP Certified</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-check text-emerald-800"></i>
+                        <span class="text-xs font-bold text-slate-900 uppercase tracking-wider">Ethical Sourcing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ================= PREMIUM MISSION & VISION SECTION ================= -->
+    <section class="py-24 bg-white border-t border-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="text-center max-w-3xl mx-auto mb-24">
+                <h2 class="text-3xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
+                    Purpose Driven. <span class="text-emerald-800">Science Backed.</span>
+                </h2>
+                <div class="h-1 w-16 bg-emerald-800 mx-auto mt-6"></div>
+                <p class="mt-8 text-lg text-slate-500 leading-relaxed">
+                    Our foundation is built on research, responsibility, and a commitment to delivering trusted
+                    healthcare solutions.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-20 items-center mb-32">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="text-emerald-800 text-xs font-bold uppercase tracking-[0.2em]">Our Mission</span>
+                        <div class="h-[1px] w-8 bg-emerald-800/30"></div>
+                    </div>
+                    <h3 class="text-3xl font-bold text-slate-900 leading-tight">
+                        Redefining Herbal Healthcare <br> With Clinical Integrity
+                    </h3>
+                    <p class="mt-6 text-slate-600 leading-relaxed text-lg">
+                        Our mission is to create scientifically formulated herbal solutions that support immunity,
+                        metabolic health, and hormonal balance.
+                    </p>
+                    <p class="mt-4 text-slate-500 text-sm leading-relaxed">
+                        Every product is developed through research-driven formulation, GMP-certified manufacturing, and
+                        strict quality testing protocols.
+                    </p>
+                </div>
+
+                <div class="relative p-1 bg-slate-50 rounded-2xl border border-slate-100 group">
+                    <div class="bg-white p-10 rounded-xl shadow-sm transition-all duration-300 group-hover:shadow-md">
+                        <div class="flex items-center gap-4 mb-8">
+                            <div
+                                class="w-12 h-12 flex items-center justify-center rounded-lg bg-emerald-800 text-white shadow-lg shadow-emerald-900/20">
+                                <i class="fa-solid fa-bullseye"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-slate-900 tracking-tight">Commitment to Excellence</h4>
+                        </div>
+                        <ul class="space-y-5">
+                            <li
+                                class="flex items-center gap-3 text-sm font-bold text-slate-700 uppercase tracking-wide">
+                                <i class="fa-solid fa-check text-emerald-600"></i> Research-based selection
+                            </li>
+                            <li
+                                class="flex items-center gap-3 text-sm font-bold text-slate-700 uppercase tracking-wide">
+                                <i class="fa-solid fa-check text-emerald-600"></i> Strict purity standards
+                            </li>
+                            <li
+                                class="flex items-center gap-3 text-sm font-bold text-slate-700 uppercase tracking-wide">
+                                <i class="fa-solid fa-check text-emerald-600"></i> Transparent process
+                            </li>
+                            <li
+                                class="flex items-center gap-3 text-sm font-bold text-slate-700 uppercase tracking-wide">
+                                <i class="fa-solid fa-check text-emerald-600"></i> Long-term wellness
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div class="order-2 lg:order-1 relative p-1 bg-slate-50 rounded-2xl border border-slate-100 group">
+                    <div class="bg-white p-10 rounded-xl shadow-sm transition-all duration-300 group-hover:shadow-md">
+                        <div class="flex items-center gap-4 mb-8">
+                            <div
+                                class="w-12 h-12 flex items-center justify-center rounded-lg bg-emerald-800 text-white shadow-lg shadow-emerald-900/20">
+                                <i class="fa-solid fa-eye"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-slate-900 tracking-tight">Future of Medicine</h4>
+                        </div>
+                        <ul class="space-y-5">
+                            <li
+                                class="flex items-center gap-3 text-sm font-bold text-slate-700 uppercase tracking-wide">
+                                <i class="fa-solid fa-check text-emerald-600"></i> Bridging Modern Science
+                            </li>
+                            <li
+                                class="flex items-center gap-3 text-sm font-bold text-slate-700 uppercase tracking-wide">
+                                <i class="fa-solid fa-check text-emerald-600"></i> Global Wellness Access
+                            </li>
+                            <li
+                                class="flex items-center gap-3 text-sm font-bold text-slate-700 uppercase tracking-wide">
+                                <i class="fa-solid fa-check text-emerald-600"></i> Continuous Innovation
+                            </li>
+                            <li
+                                class="flex items-center gap-3 text-sm font-bold text-slate-700 uppercase tracking-wide">
+                                <i class="fa-solid fa-check text-emerald-600"></i> Ethical Sourcing
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="order-1 lg:order-2">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="text-emerald-800 text-xs font-bold uppercase tracking-[0.2em]">Our Vision</span>
+                        <div class="h-[1px] w-8 bg-emerald-800/30"></div>
+                    </div>
+                    <h3 class="text-3xl font-bold text-slate-900 leading-tight">
+                        A Global Symbol of <br> Trusted Medical Wellness
+                    </h3>
+                    <p class="mt-6 text-slate-600 leading-relaxed text-lg">
+                        We envision a future where safe, herbal healthcare solutions are recognized globally as reliable
+                        alternatives supported by scientific evidence.
+                    </p>
+                    <p class="mt-4 text-slate-500 text-sm leading-relaxed">
+                        Through innovation and transparency, we aim to redefine standards in preventive and holistic
+                        wellness.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= QUALITY & CERTIFICATION SECTION ================= -->
+    <section class="relative py-24 bg-white overflow-hidden border-t border-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <h2 class="text-3xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
+                    Quality Without <span class="text-emerald-800">Compromise</span>
+                </h2>
+                <div class="h-1 w-12 bg-emerald-800 mx-auto mt-6"></div>
+                <p class="mt-8 text-lg text-slate-500 leading-relaxed">
+                    Every Bioayurix product is developed under strict pharmaceutical standards to ensure safety, purity,
+                    and effectiveness.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div class="space-y-12">
+                    <div class="flex gap-6 items-start group">
+                        <div
+                            class="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-lg bg-emerald-50 text-emerald-800 text-xl transition-colors group-hover:bg-emerald-800 group-hover:text-white">
+                            <i class="fa-solid fa-vial-circle-check"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-slate-900 uppercase tracking-tight">Lab Tested & Verified
+                            </h4>
+                            <p class="text-slate-500 mt-2 text-sm leading-relaxed">Each batch undergoes rigorous testing
+                                for purity, potency, and microbial safety before release.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6 items-start group">
+                        <div
+                            class="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-lg bg-emerald-50 text-emerald-800 text-xl transition-colors group-hover:bg-emerald-800 group-hover:text-white">
+                            <i class="fa-solid fa-certificate"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-slate-900 uppercase tracking-tight">GMP Certified Units
+                            </h4>
+                            <p class="text-slate-500 mt-2 text-sm leading-relaxed">Produced in facilities that follow
+                                Good Manufacturing Practices and pharmaceutical-grade protocols.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6 items-start group">
+                        <div
+                            class="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-lg bg-emerald-50 text-emerald-800 text-xl transition-colors group-hover:bg-emerald-800 group-hover:text-white">
+                            <i class="fa-solid fa-flask"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-slate-900 uppercase tracking-tight">Research-Driven
+                                Formulation</h4>
+                            <p class="text-slate-500 mt-2 text-sm leading-relaxed">Backed by clinical insights and
+                                carefully selected herbal extracts for long-term wellness support.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-6">
+                    <div
+                        class="bg-white rounded-xl p-8 text-center border border-slate-100 hover:border-emerald-200 transition-all duration-300 shadow-sm hover:shadow-md">
+                        <div class="text-3xl text-emerald-800 mb-4 opacity-80"><i class="fa-solid fa-award"></i></div>
+                        <h4 class="text-[13px] font-bold text-slate-900 uppercase tracking-widest">GMP Certified</h4>
+                        <p class="text-[11px] text-slate-400 mt-2 leading-tight">Global Manufacturing Standards</p>
+                    </div>
+                    <div
+                        class="bg-white rounded-xl p-8 text-center border border-slate-100 hover:border-emerald-200 transition-all duration-300 shadow-sm hover:shadow-md">
+                        <div class="text-3xl text-emerald-800 mb-4 opacity-80"><i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h4 class="text-[13px] font-bold text-slate-900 uppercase tracking-widest">ISO Standard</h4>
+                        <p class="text-[11px] text-slate-400 mt-2 leading-tight">Quality Management Systems</p>
+                    </div>
+                    <div
+                        class="bg-white rounded-xl p-8 text-center border border-slate-100 hover:border-emerald-200 transition-all duration-300 shadow-sm hover:shadow-md">
+                        <div class="text-3xl text-emerald-800 mb-4 opacity-80"><i class="fa-solid fa-leaf"></i></div>
+                        <h4 class="text-[13px] font-bold text-slate-900 uppercase tracking-widest">100% Herbal</h4>
+                        <p class="text-[11px] text-slate-400 mt-2 leading-tight">No Synthetic Additives</p>
+                    </div>
+                    <div
+                        class="bg-white rounded-xl p-8 text-center border border-slate-100 hover:border-emerald-200 transition-all duration-300 shadow-sm hover:shadow-md">
+                        <div class="text-3xl text-emerald-800 mb-4 opacity-80"><i class="fa-solid fa-user-shield"></i>
+                        </div>
+                        <h4 class="text-[13px] font-bold text-slate-900 uppercase tracking-widest">Safe & Trusted</h4>
+                        <p class="text-[11px] text-slate-400 mt-2 leading-tight">Clinically Validated Care</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--======================== CTA BUTTON SECTION========================  -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div
+                class="bg-[#f0f9f6] border border-teal-100 rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
+
+                <div class="text-center md:text-left">
+                    <h2 class="text-2xl md:text-3xl font-bold text-slate-900">Get 30% Off Your First Order</h2>
+                    <p class="text-teal-700 font-medium mt-1">Authentic Ayurvedic care, now more accessible.</p>
+                    <p class="text-gray-500 text-sm mt-4 italic">Use Coupon Code: <span
+                            class="font-bold text-slate-900 select-all tracking-wider">PURE30</span></p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+                    <a href="/products/"
+                        class="bg-teal-600 hover:bg-teal-700 text-white font-bold px-8 py-3 rounded-lg text-center transition">
+                        Browse Products
+                    </a>
+                    <a href="/contact/"
+                        class="bg-white border border-gray-200 text-slate-700 font-bold px-8 py-3 rounded-lg text-center hover:bg-gray-50 transition">
+                        Free Consultation
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- ================= PREMIUM FOOTER SECTION : START ================= -->
+    <footer class="bg-slate-950 text-slate-400 pt-20 pb-10 border-t border-emerald-900/20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-4 gap-14">
+
+                <div>
+                    <a href="/" class="flex items-center gap-3">
+                        <img src="https://assets.pharmeasy.in/apothecary/images/logo_big.svg?dim=256x0"
+                            class="h-10 w-auto brightness-0 invert" alt="Bioayurix">
+                    </a>
+                    <p class="mt-6 text-sm leading-relaxed opacity-80 max-w-sm">
+                        We blend authentic Ayurvedic wisdom with modern scientific research to create safe, natural and
+                        effective wellness solutions for everyday life.
+                    </p>
+                    <div class="flex gap-3 mt-8">
+                        <a href="#"
+                            class="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center hover:bg-emerald-800 transition-all duration-300">
+                            <i class="fa-brands fa-facebook-f text-white text-sm"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center hover:bg-emerald-800 transition-all duration-300">
+                            <i class="fa-brands fa-instagram text-white text-sm"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center hover:bg-emerald-800 transition-all duration-300">
+                            <i class="fa-brands fa-x-twitter text-white text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-sm uppercase tracking-[0.2em] mb-8">Navigation</h4>
+                    <ul class="space-y-4 text-[14px]">
+                        <li><a href="/" class="hover:text-emerald-400 transition">Home</a></li>
+                        <li><a href="/products/" class="hover:text-emerald-400 transition">Products</a></li>
+                        <li><a href="/about/" class="hover:text-emerald-400 transition">About Us</a></li>
+                        <li><a href="/contact/" class="hover:text-emerald-400 transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-sm uppercase tracking-[0.2em] mb-8">Assistance</h4>
+                    <ul class="space-y-4 text-[14px]">
+                        <li><a href="/privacy-policy/" class="hover:text-emerald-400 transition">Privacy Policy</a></li>
+                        <li><a href="/terms-conditions/" class="hover:text-emerald-400 transition">Terms &
+                                Conditions</a></li>
+                        <li><a href="/shipping-policy/" class="hover:text-emerald-400 transition">Shipping Policy</a>
+                        </li>
+                        <li><a href="/refund-policy/" class="hover:text-emerald-400 transition">Refund Policy</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-sm uppercase tracking-[0.2em] mb-8">Reach Us</h4>
+                    <ul class="space-y-5 text-[14px]">
+                        <li class="flex gap-4">
+                            <i class="fa-solid fa-location-dot text-emerald-500 mt-1"></i>
+                            <span>New Delhi, India</span>
+                        </li>
+                        <li class="flex gap-4">
+                            <i class="fa-solid fa-envelope text-emerald-500 mt-1"></i>
+                            <span class="break-all">support@bioayurix.com</span>
+                        </li>
+                        <li class="flex gap-4">
+                            <i class="fa-solid fa-phone text-emerald-500 mt-1"></i>
+                            <span>+91 98765 43210</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                class="border-t border-white/5 mt-16 pt-10 flex flex-col md:flex-row items-center justify-between gap-8">
+                <div
+                    class="flex flex-wrap justify-center gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-500">
+                    <span class="flex items-center gap-2">
+                        <i class="fa-solid fa-leaf text-emerald-600 text-sm"></i> 100% Ayurvedic
+                    </span>
+                    <span class="flex items-center gap-2">
+                        <i class="fa-solid fa-flask text-emerald-600 text-sm"></i> Lab Certified
+                    </span>
+                    <span class="flex items-center gap-2">
+                        <i class="fa-solid fa-shield-heart text-emerald-600 text-sm"></i> Clinical Grade
+                    </span>
+                </div>
+                <p class="text-[12px] text-slate-600 font-medium tracking-wide">
+                    © 2026 BIOAYURIX. ALL RIGHTS RESERVED.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= PREMIUM FOOTER SECTION :END ================= -->
+
+
+    <!-- Sidebar JS -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const sidebar = document.getElementById("sidebar");
+            const overlay = document.getElementById("overlay");
+            const openBtn = document.getElementById("openSidebar");
+            const closeBtn = document.getElementById("closeSidebar");
+
+            if (openBtn && sidebar && overlay && closeBtn) {
+                openBtn.addEventListener("click", function () {
+                    sidebar.classList.remove("translate-x-full");
+                    overlay.classList.remove("opacity-0", "invisible");
+                    overlay.classList.add("opacity-100", "visible");
+                });
+
+                closeBtn.addEventListener("click", function () {
+                    sidebar.classList.add("translate-x-full");
+                    overlay.classList.add("opacity-0", "invisible");
+                    overlay.classList.remove("opacity-100", "visible");
+                });
+
+                overlay.addEventListener("click", function () {
+                    sidebar.classList.add("translate-x-full");
+                    overlay.classList.add("opacity-0", "invisible");
+                    overlay.classList.remove("opacity-100", "visible");
+                });
+            }
+
+            // Auto-dismiss Django messages after 5 seconds
+            var messages = document.querySelectorAll(".message-alert");
+            messages.forEach(function (msg) {
+                setTimeout(function () {
+                    msg.style.opacity = "0";
+                    msg.style.transform = "translateX(100%)";
+                    setTimeout(function () {
+                        msg.remove();
+                    }, 300);
+                }, 5000);
+            });
+        });
+    </script>
+
+
+</body>
+<script type="text/javascript">
+    (function (c, l, a, r, i, t, y) {
+        c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+        t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "vn9oee5iep");
+</script>
+
+</html>
