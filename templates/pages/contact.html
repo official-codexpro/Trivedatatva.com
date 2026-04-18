@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact Us - Trivedatatva{% endblock %}
+
+{% block content %}
+<!-- ================= CONTACT HERO ================= -->
+<section class="relative mt-16 bg-gradient-to-b from-white to-purple-50/40 py-16">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+        <p class="text-sm text-gray-500 mb-4">Home / Contact Us</p>
+        <h1 class="text-3xl lg:text-4xl font-extrabold text-gray-900">Get in Touch With Our Wellness Team</h1>
+        <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Have questions about our products? Our support team is here to help you.</p>
+    </div>
+</section>
+
+<!-- ================= CONTACT SECTION ================= -->
+<section class="bg-white py-20">
+    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16">
+        <!-- LEFT : CONTACT INFO -->
+        <div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-8">Contact Information</h2>
+            <div class="space-y-8">
+                <div class="flex gap-4 items-start">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-full bg-purple-100 text-purple-600 text-xl"><i class="fa-solid fa-envelope"></i></div>
+                    <div><h4 class="font-semibold text-gray-900">Email</h4><p class="text-gray-600 text-sm">support@trivedatatva.com</p></div>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-full bg-purple-100 text-purple-600 text-xl"><i class="fa-solid fa-phone"></i></div>
+                    <div><h4 class="font-semibold text-gray-900">Phone</h4><p class="text-gray-600 text-sm">+91 98234 56710</p></div>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-full bg-purple-100 text-purple-600 text-xl"><i class="fa-solid fa-location-dot"></i></div>
+                    <div><h4 class="font-semibold text-gray-900">Address</h4><p class="text-gray-600 text-sm">Trivedatatva<br>12, Wellness Nagar, Haridwar - 249401<br>Uttarakhand, India</p></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT : CONTACT FORM -->
+        <div class="bg-gray-50 rounded-3xl p-8 shadow-sm border border-gray-100">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
+            <form method="post" action="{% url 'contact' %}" class="space-y-6">
+                {% csrf_token %}
+                <div>
+                    <label class="text-sm font-medium text-gray-700">Full Name</label>
+                    <input type="text" name="full_name" required class="w-full mt-2 border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-purple-500 focus:outline-none">
+                </div>
+                <div>
+                    <label class="text-sm font-medium text-gray-700">Email Address</label>
+                    <input type="email" name="email" required class="w-full mt-2 border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-purple-500 focus:outline-none">
+                </div>
+                <div>
+                    <label class="text-sm font-medium text-gray-700">Your Message</label>
+                    <textarea name="message" rows="4" required class="w-full mt-2 border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-purple-500 focus:outline-none"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-xl font-semibold transition">Send Message</button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}

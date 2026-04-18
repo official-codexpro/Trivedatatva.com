@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Bad Request — Trivedatatva{% endblock %}
+
+{% block content %}
+<section class="min-h-[80vh] flex items-center justify-center bg-white py-24">
+<div class="mx-auto w-full max-w-2xl px-6 text-center">
+
+    <!-- Error Number -->
+    <div class="relative inline-block mb-6">
+        <span class="text-[10rem] font-black text-slate-100 leading-none select-none">400</span>
+        <div class="absolute inset-0 flex items-center justify-center">
+            <i class="fa-solid fa-triangle-exclamation text-purple-300 text-5xl"></i>
+        </div>
+    </div>
+
+    <!-- Heading -->
+    <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-800 tracking-tight leading-tight">
+        Something Wasn't Right<span class="text-purple-400">.</span>
+    </h1>
+
+    <!-- Subtext -->
+    <p class="mt-5 text-slate-500 text-lg leading-relaxed font-medium max-w-lg mx-auto">
+        Like an imbalanced dosha, the request sent to our server was not quite in harmony.
+        Please try again from the beginning.
+    </p>
+
+    <!-- Divider -->
+    <div class="mt-10 flex items-center justify-center gap-3">
+        <div class="h-px w-16 bg-slate-200"></div>
+        <i class="fa-solid fa-om text-purple-300 text-xs"></i>
+        <div class="h-px w-16 bg-slate-200"></div>
+    </div>
+
+    <!-- Actions -->
+    <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/"
+           class="px-10 py-4 bg-purple-600 text-white text-sm font-black uppercase tracking-[0.2em]
+                  rounded-sm shadow-xl hover:bg-slate-900 transition-all duration-300">
+            Back to Home
+        </a>
+        <a href="/products/"
+           class="px-10 py-4 border border-slate-200 text-slate-700 text-sm font-black uppercase tracking-[0.2em]
+                  rounded-sm hover:bg-purple-50 hover:border-purple-300 transition-all duration-300">
+            Browse Products
+        </a>
+    </div>
+
+    <!-- Trust row -->
+    <div class="mt-16 flex flex-wrap justify-center gap-8 text-xs font-semibold text-slate-400 uppercase tracking-widest">
+        <span><i class="fa-solid fa-circle-check text-purple-400 mr-2"></i>GMP Certified</span>
+        <span><i class="fa-solid fa-circle-check text-purple-400 mr-2"></i>ISO Approved</span>
+        <span><i class="fa-solid fa-circle-check text-purple-400 mr-2"></i>100% Herbal</span>
+    </div>
+
+</div>
+</section>
+{% endblock %}

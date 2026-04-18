@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}All Products - Trivedatatva{% endblock %}
+
+{% block content %}
+<!-- ================= PRODUCTS HERO SECTION ================= -->
+<section class="relative  overflow-hidden">
+    <div class="absolute inset-0">
+        <img src="https://plus.unsplash.com/premium_photo-1672759455907-bdaef741cd88?q=80&w=1716&auto=format&fit=crop" class="w-full h-full object-cover" alt="Products background" />
+        <div class="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-6 py-20 lg:py-24 text-center">
+        <p class="text-sm text-white/80 mb-4 tracking-wide">Home / Products</p>
+        <h1 class="text-3xl lg:text-5xl font-extrabold text-white leading-tight">Explore Our Premium Medical Products</h1>
+        <p class="mt-6 max-w-2xl mx-auto text-base lg:text-lg text-white/90">
+            Scientifically formulated herbal supplements designed to support immunity, metabolism, respiratory health, and overall wellness.
+        </p>
+    </div>
+</section>
+
+<!-- ================= PRODUCT GRID ================= -->
+<section class="relative py-20 lg:py-28 bg-gradient-to-b from-white to-slate-50 border-b border-slate-100">
+
+    <div class="mx-auto w-full 
+    max-w-[1200px] lg:max-w-[1300px] 2xl:max-w-[1500px] 
+    px-5 md:px-6 xl:px-8">
+
+        <!-- ================= GRID ================= -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+
+            {% for product in products %}
+            <div class="group bg-white border border-slate-100 shadow-sm hover:shadow-xl hover:shadow-purple-50/40 
+                        transition-all duration-500 overflow-hidden flex flex-col">
+
+                <!-- ================= IMAGE (EDGE TO EDGE) ================= -->
+                <a href="{% url 'product_detail' product.slug %}" class="block relative">
+
+                    <div class="relative w-full aspect-[4/4] overflow-hidden bg-slate-50">
+
+                        {% if product.image %}
+                        <img src="{{ product.image.url }}" 
+                             alt="{{ product.name }}"
+                             class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+                        {% endif %}
+
+                        <!-- subtle premium overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+
+                    </div>
+
+                </a>
+
+
+                <!-- ================= CONTENT ================= -->
+                <div class="p-6 flex flex-col flex-1">
+
+                    <!-- TITLE -->
+                    <h3 class="text-lg font-bold text-slate-800 tracking-tight group-hover:text-purple-600 transition">
+                        {{ product.name }}
+                    </h3>
+
+                    <!-- DESC -->
+                    <p class="mt-2 text-sm text-slate-500 leading-relaxed line-clamp-2 font-medium">
+                        {{ product.short_description }}
+                    </p>
+
+                    <!-- PRICE -->
+                    <div class="mt-4 flex items-center gap-3">
+                        <span class="text-xl font-bold text-slate-900">
+                            ₹{{ product.price }}
+                        </span>
+                    </div>
+
+                    <!-- CTA -->
+                    <div class="mt-6 flex gap-3">
+
+                        <!-- VIEW -->
+                        <a href="{% url 'product_detail' product.slug %}"
+                           class="flex-1 py-3 text-xs text-center border border-slate-200 
+                           font-black uppercase tracking-[0.2em]
+                           hover:bg-slate-50 transition">
+                            Details
+                        </a>
+
+                        <!-- ADD -->
+                        <form method="post"
+                              action="{% url 'cart:cart_add' product.id %}"
+                              class="flex-1">
+                            {% csrf_token %}
+                            <input type="hidden" name="quantity" value="1">
+                            <input type="hidden" name="next" value="{% url 'product_list' %}">
+
+                            <button type="submit"
+                                class="w-full py-3 text-xs 
+                                bg-purple-600 text-white font-black uppercase tracking-[0.2em] 
+                                hover:bg-slate-900 transition-all duration-300">
+                                Add
+                            </button>
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+            {% empty %}
+            <div class="col-span-3 text-center py-24">
+
+                <div class="text-5xl text-slate-300 mb-6">
+                    <i class="fa-solid fa-box-open"></i>
+                </div>
+
+                <p class="text-slate-500 text-lg font-medium">
+                    No products available at the moment.
+                </p>
+
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Payment Failed - Trivedatatva{% endblock %}
+
+{% block content %}
+<section class="py-20 lg:py-28 bg-gradient-to-b from-white to-slate-50 border-b border-slate-100">
+
+<div class="mx-auto w-full max-w-[700px] px-5 md:px-6 text-center">
+
+    <!-- ================= ICON ================= -->
+    <div class="w-20 h-20 mx-auto border border-red-200 flex items-center justify-center mb-10">
+        <i class="fa-solid fa-xmark text-red-600 text-3xl"></i>
+    </div>
+
+    <!-- ================= HEADING ================= -->
+    <h1 class="text-3xl lg:text-4xl font-extrabold text-slate-800 tracking-tight">
+        Payment Failed<span class="text-red-500">.</span>
+    </h1>
+
+    <p class="mt-4 text-slate-500 text-lg font-medium max-w-md mx-auto">
+        Your transaction could not be completed. Please try again or use a different payment method.
+    </p>
+
+
+    <!-- ================= ORDER DETAILS ================= -->
+    <div class="mt-12 bg-white border border-slate-100 p-8 text-left shadow-sm">
+
+        <h2 class="text-lg font-bold text-slate-800 uppercase tracking-wider mb-6">
+            Order Details
+        </h2>
+
+        <div class="space-y-4 text-sm text-slate-600">
+
+            <div class="flex justify-between">
+                <span>Order Number</span>
+                <span class="font-bold text-slate-800">#{{ order.id }}</span>
+            </div>
+
+            <div class="flex justify-between">
+                <span>Name</span>
+                <span class="font-medium">{{ order.full_name }}</span>
+            </div>
+
+            <div class="flex justify-between">
+                <span>Amount</span>
+                <span class="font-bold text-red-600">₹{{ order.total_amount }}</span>
+            </div>
+
+            <div class="flex justify-between">
+                <span>Status</span>
+                <span class="font-bold text-red-600 uppercase tracking-wider">
+                    Payment Failed
+                </span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= ACTION BUTTONS ================= -->
+    <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+
+        <!-- RETRY -->
+        <a href="{% url 'checkout' %}"
+            class="px-10 py-4 bg-purple-600 text-white text-sm font-black uppercase tracking-[0.2em] 
+            hover:bg-slate-900 transition-all duration-300">
+            Try Again
+        </a>
+
+        <!-- CONTINUE -->
+        <a href="{% url 'product_list' %}"
+            class="px-10 py-4 border border-slate-200 text-slate-700 text-sm font-black uppercase tracking-[0.2em] 
+            hover:bg-slate-50 transition-all duration-300">
+            Continue Shopping
+        </a>
+
+    </div>
+
+
+    <!-- ================= HELP NOTE ================= -->
+    <p class="mt-8 text-xs text-slate-400">
+        If the issue persists, please contact support or try a different payment method.
+    </p>
+
+</div>
+</section>
+{% endblock %}

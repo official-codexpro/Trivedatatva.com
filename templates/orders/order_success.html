@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Order Confirmed - Trivedatatva{% endblock %}
+
+{% block content %}
+<section class="py-20 lg:py-28 bg-gradient-to-b from-white to-slate-50 border-b border-slate-100">
+
+<div class="mx-auto w-full max-w-[700px] px-5 md:px-6 text-center">
+
+    <!-- ================= ICON ================= -->
+    <div class="w-20 h-20 mx-auto border border-green-200 flex items-center justify-center mb-10">
+        <i class="fa-solid fa-check text-green-600 text-3xl"></i>
+    </div>
+
+    <!-- ================= HEADING ================= -->
+    <h1 class="text-3xl lg:text-4xl font-extrabold text-slate-800 tracking-tight">
+        Payment Successful<span class="text-purple-400">.</span>
+    </h1>
+
+    <p class="mt-4 text-slate-500 text-lg font-medium max-w-md mx-auto">
+        Your payment has been confirmed and your order is now being processed.
+    </p>
+
+
+    <!-- ================= ORDER DETAILS ================= -->
+    <div class="mt-12 bg-white border border-slate-100 p-8 text-left shadow-sm">
+
+        <h2 class="text-lg font-bold text-slate-800 uppercase tracking-wider mb-6">
+            Order Details
+        </h2>
+
+        <div class="space-y-4 text-sm text-slate-600">
+
+            <div class="flex justify-between">
+                <span>Order Number</span>
+                <span class="font-bold text-slate-800">#{{ order.id }}</span>
+            </div>
+
+            <div class="flex justify-between">
+                <span>Payment Status</span>
+                <span class="font-bold text-green-600 uppercase tracking-wider">Paid</span>
+            </div>
+
+            <div class="flex justify-between">
+                <span>Name</span>
+                <span>{{ order.full_name }}</span>
+            </div>
+
+            <div class="flex justify-between">
+                <span>Email</span>
+                <span>{{ order.email }}</span>
+            </div>
+
+            <div class="flex justify-between">
+                <span>Phone</span>
+                <span>{{ order.phone }}</span>
+            </div>
+
+            <div class="border-t border-slate-100 my-4"></div>
+
+            <div class="flex justify-between items-start">
+                <span>Shipping Address</span>
+                <span class="text-right">
+                    {{ order.address }}, {{ order.city }},<br>
+                    {{ order.state }} - {{ order.pincode }}
+                </span>
+            </div>
+
+            <div class="border-t border-slate-100 my-4"></div>
+
+            <!-- ITEMS -->
+            {% for item in order_items %}
+            <div class="flex justify-between">
+                <span>{{ item.product.name }} × {{ item.quantity }}</span>
+                <span class="font-medium text-slate-800">₹{{ item.price }}</span>
+            </div>
+            {% endfor %}
+
+            <div class="border-t border-slate-100 my-4"></div>
+
+            <div class="flex justify-between text-lg font-bold text-slate-900">
+                <span>Total</span>
+                <span>₹{{ order.total_amount }}</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= CTA ================= -->
+    <div class="mt-10">
+
+        <a href="{% url 'product_list' %}"
+            class="inline-block px-12 py-4 bg-purple-600 text-white text-sm font-black uppercase tracking-[0.2em] 
+            hover:bg-slate-900 transition-all duration-300">
+            Continue Shopping
+        </a>
+
+    </div>
+
+
+    <!-- ================= TRUST NOTE ================= -->
+    <p class="mt-8 text-xs text-slate-400">
+        A confirmation email has been sent with your order details.
+    </p>
+
+</div>
+</section>
+{% endblock %}

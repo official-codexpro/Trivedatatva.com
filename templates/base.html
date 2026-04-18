@@ -1,0 +1,163 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q8Q3M0PMK1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-Q8Q3M0PMK1');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Trivedatatva{% endblock %}</title>
+    <meta name="description" content="{% block meta_description %}Premium Ayurvedic health products by Trivedatatva - crafted with natural ingredients and modern research.{% endblock %}">
+    <meta name="google-site-verification" content="zO2DP88_5X6q6eCx6eRiUC7hc4pgQ2rIsZWmVSeRHEs" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{% static 'logo.png' %}">
+    <!-- PREMIUM FONT -->
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome 6.5.1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <!-- PREMIUM FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: {
+        // Trivedatatva style clean UI font
+        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+        // Premium Serif for elegant titles
+        serif: ['Playfair Display', 'serif'],
+      },
+      colors: {
+        // Applying the Trivedatatva teal and navy palette
+        'brand-teal': '#0d9488', 
+        'brand-navy': '#0b2c3d',
+      }
+    }
+  }
+}
+</script>
+
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body class="font-sans antialiased text-gray-800 bg-white selection:bg-teal-100 selection:text-teal-900">
+    <!-- WhatsApp Floating Button -->
+<a href="https://wa.me/919823456710" target="_blank"
+   class="fixed bottom-5 right-5 z-[999] group">
+
+    <!-- Glow Ring -->
+    <span class="absolute inset-0 rounded-full bg-green-500/20 blur-xl scale-110 group-hover:scale-125 transition-all duration-500"></span>
+
+    <!-- Button -->
+    <div class="relative flex items-center justify-center w-14 h-14 rounded-full 
+                bg-[#25D366] shadow-[0_8px_30px_rgb(37,211,102,0.4)]
+                hover:scale-110 hover:-translate-y-1 transition-all duration-300">
+
+        <!-- WhatsApp Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg"     
+             viewBox="0 0 32 32" 
+             class="w-7 h-7 fill-white">
+            <path d="M16 .396C7.164.396 0 7.56 0 16.396c0 2.893.754 5.715 2.184 8.202L0 32l7.587-2.143a15.933 15.933 0 0 0 8.413 2.39c8.836 0 16-7.164 16-16S24.836.396 16 .396zm0 29.238c-2.54 0-5.024-.684-7.188-1.98l-.514-.307-4.502 1.27 1.2-4.39-.334-.54a13.97 13.97 0 0 1-2.14-7.291c0-7.73 6.27-14 14-14s14 6.27 14 14-6.27 14-14 14zm7.764-10.384c-.425-.213-2.514-1.24-2.902-1.38-.388-.142-.671-.213-.954.213s-1.095 1.38-1.343 1.664c-.248.283-.496.32-.921.107-.425-.213-1.796-.662-3.42-2.11-1.264-1.127-2.118-2.52-2.366-2.945-.248-.426-.026-.656.187-.868.192-.191.425-.496.638-.744.213-.248.283-.426.425-.709.142-.283.071-.532-.035-.744-.106-.213-.954-2.301-1.306-3.152-.343-.825-.691-.713-.954-.727l-.813-.014c-.283 0-.744.107-1.134.532-.388.426-1.484 1.45-1.484 3.536 0 2.087 1.52 4.104 1.73 4.388.213.283 2.988 4.563 7.242 6.396 1.012.437 1.802.698 2.417.893 1.015.322 1.94.276 2.67.168.815-.122 2.514-1.026 2.868-2.017.354-.991.354-1.842.248-2.017-.106-.177-.388-.284-.813-.497z"/>
+        </svg>
+    </div>
+
+</a>
+    <!-- Django Messages -->
+    {% if messages %}
+    <div id="django-messages" class="fixed top-4 right-4 z-[1100] flex flex-col gap-2 max-w-sm w-full">
+        {% for message in messages %}
+        <div class="message-alert flex items-center gap-3 px-5 py-3 rounded-xl shadow-lg text-sm font-medium transition-all duration-300
+            {% if message.tags == 'success' %}bg-green-50 text-green-800 border border-green-200
+            {% elif message.tags == 'error' %}bg-red-50 text-red-800 border border-red-200
+            {% elif message.tags == 'warning' %}bg-yellow-50 text-yellow-800 border border-yellow-200
+            {% else %}bg-blue-50 text-blue-800 border border-blue-200{% endif %}">
+            <span>
+                {% if message.tags == 'success' %}<i class="fa-solid fa-circle-check"></i>
+                {% elif message.tags == 'error' %}<i class="fa-solid fa-circle-xmark"></i>
+                {% elif message.tags == 'warning' %}<i class="fa-solid fa-triangle-exclamation"></i>
+                {% else %}<i class="fa-solid fa-circle-info"></i>{% endif %}
+            </span>
+            <span>{{ message }}</span>
+            <button onclick="this.parentElement.remove()" class="ml-auto text-lg leading-none opacity-60 hover:opacity-100">&times;</button>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {# ================= NAVBAR BLOCK ================= #}
+    {# Default: shows the sticky navbar (always visible on non-home pages). #}
+    {# The home page overrides this block to render its own hero-with-navbar #}
+    {# and controls sticky nav visibility via scroll JS. #}
+    {% block navbar %}
+    {% include 'includes/navbar.html' %}
+    {% endblock %}
+
+    <!-- Main Content -->
+    {% block content %}{% endblock %}
+
+    <!-- Footer -->
+    {% include 'includes/footer.html' %}
+
+    <!-- Sidebar JS -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const sidebar = document.getElementById("sidebar");
+            const overlay = document.getElementById("overlay");
+            const openBtn = document.getElementById("openSidebar");
+            const closeBtn = document.getElementById("closeSidebar");
+
+            if (openBtn && sidebar && overlay && closeBtn) {
+                openBtn.addEventListener("click", function () {
+                    sidebar.classList.remove("translate-x-full");
+                    overlay.classList.remove("opacity-0", "invisible");
+                    overlay.classList.add("opacity-100", "visible");
+                });
+
+                closeBtn.addEventListener("click", function () {
+                    sidebar.classList.add("translate-x-full");
+                    overlay.classList.add("opacity-0", "invisible");
+                    overlay.classList.remove("opacity-100", "visible");
+                });
+
+                overlay.addEventListener("click", function () {
+                    sidebar.classList.add("translate-x-full");
+                    overlay.classList.add("opacity-0", "invisible");
+                    overlay.classList.remove("opacity-100", "visible");
+                });
+            }
+
+            // Auto-dismiss Django messages after 5 seconds
+            var messages = document.querySelectorAll(".message-alert");
+            messages.forEach(function (msg) {
+                setTimeout(function () {
+                    msg.style.opacity = "0";
+                    msg.style.transform = "translateX(100%)";
+                    setTimeout(function () {
+                        msg.remove();
+                    }, 300);
+                }, 5000);
+            });
+        });
+    </script>
+
+    {% block extra_js %}{% endblock %}
+</body>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "vn9oee5iep");
+</script>
+</html>

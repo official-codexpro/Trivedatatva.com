@@ -1,0 +1,196 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ product.name }} - Trivedatatva{% endblock %}
+
+{% block content %}
+<!-- ================= PRODUCT SHOWCASE SECTION ================= -->   
+<section class="pt-10 pb-20 lg:pt-16 lg:pb-32 bg-white border-b border-gray-50">
+
+<div class="mx-auto w-full
+max-w-[1200px] lg:max-w-[1300px] 2xl:max-w-[1500px]
+[@media(min-width:2100px)]:max-w-[1800px]
+px-5 md:px-6 xl:px-8 2xl:px-6
+[@media(min-width:2100px)]:px-10">
+
+    <div class="grid lg:grid-cols-2 gap-16 lg:gap-20 items-start">
+
+        <!-- ================= LEFT: BIG IMAGE ================= -->
+        <div class="w-full">
+           
+            <!-- MAIN IMAGE (4x4 dominant) -->
+            <div class="relative bg-white border border-slate-100 rounded-sm shadow-sm overflow-hidden group">
+
+                <!-- soft glow -->
+                <div class="absolute inset-0 bg-gradient-to-tr from-purple-50/30 via-white to-transparent"></div>
+
+                <!-- BIG IMAGE -->
+                <div class="relative w-full aspect-square lg:h-[520px] flex items-center justify-center p-8 overflow-hidden">
+                    <img
+                        id="mainImage"
+                        src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/placeholder.png' %}{% endif %}"
+                        alt="{{ product.name }}"
+                        class="w-full h-full object-contain mix-blend-multiply transition duration-700 group-hover:scale-110"
+                    />
+                </div>
+
+                <!-- hover frame -->
+                <div class="absolute inset-0 border border-transparent group-hover:border-purple-200 transition-all duration-500"></div>
+
+            </div>
+
+            <!-- THUMBNAILS -->
+            <div class="flex gap-3 mt-5 flex-wrap">
+                {% if product.image %}
+                <img
+                    src="{{ product.image.url }}"
+                    alt="{{ product.name }}"
+                    class="thumb w-16 h-16 object-cover rounded-sm cursor-pointer transition-all duration-300 border-2 border-purple-600"
+                />
+                {% endif %}
+                {% for img in product.images.all %}
+                <img
+                    src="{{ img.image.url }}"
+                    alt="{{ product.name }}"
+                    class="thumb w-16 h-16 object-cover rounded-sm cursor-pointer transition-all duration-300 border border-slate-200 hover:border-purple-400"
+                />
+                {% endfor %}
+            </div>
+
+        </div>
+        <!-- ================= END LEFT ================= -->
+
+        <!-- ================= RIGHT: DETAILS ================= -->
+        <div class="max-w-xl mt-6">
+
+            <!-- TITLE -->
+             <h1 class=" text-2xl sm:text-5xl font-extrabold text-slate-900 sm:text-slate-800 leading-snug sm:leading-[1.1] tracking-tight "> {{ product.name }} </h1>
+
+      <!-- DESCRIPTION -->
+       <div class="mt-6"> <!-- MOBILE TOGGLE BUTTON --> <button id="descToggle" class="md:hidden w-full flex items-center justify-between text-left text-sm font-semibold text-slate-700 uppercase tracking-wider mb-3"> Product Details <span id="descIcon" class="transition-transform duration-300"> <i class="fa-solid fa-chevron-down"></i> </span> </button> <!-- DESCRIPTION CONTENT --> <div id="descContent" class="text-lg text-slate-500 leading-relaxed font-medium max-h-0 overflow-hidden md:max-h-full transition-all duration-500"> <!-- ✅ JUSTIFIED EVERYWHERE --> <p class="text-justify"> {{ product.description }} </p> </div> </div>
+
+            <!-- RATING -->
+            <div class="flex items-center gap-4 mt-8">
+                <div class="flex text-yellow-400 text-sm">
+                    {% for i in "12345" %}
+                        {% if forloop.counter <= product.rating %}
+                            <i class="fa-solid fa-star"></i>
+                        {% else %}
+                            <i class="fa-regular fa-star text-slate-300"></i>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <span class="text-slate-400 text-sm font-medium">
+                    ({{ product.review_count|default:"0" }} Reviews)
+                </span>
+            </div>
+
+            <!-- PRICE -->
+            <div class="mt-12 flex items-center gap-4">
+                <span class="text-4xl font-bold text-slate-900">
+                    ₹{{ product.price }}
+                </span>
+
+                {% if product.original_price %}
+                <span class="text-lg line-through text-slate-300 font-medium">
+                    ₹{{ product.original_price }}
+                </span>
+                {% endif %}
+            </div>
+
+            <!-- BUTTONS (NO ROUND) -->
+            <div class="mt-10 flex flex-col sm:flex-row gap-4">
+
+                <!-- ADD TO CART -->
+                <form method="post" action="{% url 'cart:cart_add' product.id %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="quantity" value="1">
+
+                    <button type="submit"
+                        class="px-12 py-4 bg-purple-600 text-white text-sm font-black uppercase tracking-[0.2em]
+                        rounded-sm shadow-xl hover:bg-slate-900 transition-all duration-300 w-full sm:w-auto">
+                        Add to Cart
+                    </button>
+                </form>
+
+                <!-- BUY NOW -->
+                <form method="post" action="{% url 'cart:cart_add' product.id %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="quantity" value="1">
+                    <input type="hidden" name="buy_now" value="1">
+
+                    <button type="submit"
+                        class="px-12 py-4 border border-slate-200 text-slate-700 text-sm font-black uppercase tracking-[0.2em]
+                        rounded-sm hover:bg-purple-50 hover:border-purple-300 transition-all duration-300 w-full sm:w-auto">
+                        Buy Now
+                    </button>
+                </form>
+
+            </div>
+
+            <!-- TRUST -->
+            <div class="mt-10 space-y-2 text-sm text-slate-500 font-medium">
+                <p class="flex items-center gap-2">
+                    <i class="fa-solid fa-circle-check text-purple-500 text-xs"></i>
+                    Lab Tested Purity
+                </p>
+                <p class="flex items-center gap-2">
+                    <i class="fa-solid fa-circle-check text-purple-500 text-xs"></i>
+                    GMP Certified Manufacturing
+                </p>
+                <p class="flex items-center gap-2">
+                    <i class="fa-solid fa-circle-check text-purple-500 text-xs"></i>
+                    Fast Secure Delivery
+                </p>
+            </div>
+
+        </div>
+        <!-- ================= END RIGHT ================= -->
+
+    </div>
+
+</div>
+</section>
+<!-- ================= END PRODUCT SHOWCASE ================= -->
+
+
+<!-- ================= A+ CONTENT ================= -->
+{% if product.aplus_content %}
+{{ product.aplus_content|safe }}
+{% endif %}
+<!-- ================= END A+ CONTENT ================= -->
+
+
+{% endblock %}
+
+
+{% block extra_js %}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const mainImage = document.getElementById("mainImage");
+        const thumbs = document.querySelectorAll(".thumb");
+
+        thumbs.forEach(function (thumb) {
+            thumb.addEventListener("click", function () {
+                // Fade out
+                mainImage.style.opacity = 0;
+
+                setTimeout(function () {
+                    mainImage.src = thumb.src;
+                    mainImage.style.opacity = 1;
+                }, 150);
+
+                // Reset all thumbnail borders
+                thumbs.forEach(function (t) {
+                    t.classList.remove("border-2", "border-teal-600");
+                    t.classList.add("border", "border-gray-200");
+                });
+
+                // Highlight clicked thumbnail
+                thumb.classList.remove("border", "border-gray-200");
+                thumb.classList.add("border-2", "border-teal-600");
+            });
+        });
+    });
+</script>
+{% endblock %}

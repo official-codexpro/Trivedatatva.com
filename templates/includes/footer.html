@@ -1,0 +1,128 @@
+<footer class="bg-[#080809] text-slate-300 pt-20 pb-10 border-t border-white/10 relative overflow-hidden">
+
+    <!-- Subtle Texture -->
+    <div class="absolute inset-0 opacity-[0.02] pointer-events-none 
+        bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]">
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+
+        <!-- GRID -->
+        <div class="grid lg:grid-cols-12 gap-12 mb-16">
+
+            <!-- LEFT BRAND -->
+            <div class="lg:col-span-5 space-y-6">
+
+                <div>
+                    <h3 class="text-3xl font-bold text-white tracking-tight">
+                        Trivedatatva<span class="text-purple-500">.</span>
+                    </h3>
+
+                    <p class="text-[10px] font-bold text-purple-400/80 uppercase tracking-[0.25em] flex items-center gap-2 mt-2">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        Certified Pharmaceutical Protocol
+                    </p>
+                </div>
+
+                <p class="text-[15px] leading-relaxed text-slate-400 max-w-md">
+                    Advancing human wellness through clinical-grade Ayurvedic formulations.
+                    Blending Vedic intelligence with modern pharmacology.
+                </p>
+
+                <!-- Badges -->
+                <div class="flex flex-wrap gap-3 pt-2">
+                    <div class="flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded-full">
+                        <i class="fa-solid fa-microscope text-purple-500 text-xs"></i>
+                        <span class="text-[10px] font-semibold text-white">Lab Tested</span>
+                    </div>
+                    <div class="flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded-full">
+                        <i class="fa-solid fa-shield-virus text-blue-500 text-xs"></i>
+                        <span class="text-[10px] font-semibold text-white">ISO Certified</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT GRID -->
+            <div class="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8">
+
+                <!-- COL 1 -->
+                <div>
+                    <h4 class="text-white font-semibold text-sm mb-6 flex items-center gap-2">
+                        <span class="w-1 h-4 bg-purple-600 rounded-full"></span>
+                        Laboratory
+                    </h4>
+
+                    <ul class="space-y-3">
+                        <li><a href="{% url 'home' %}" class="footer-link">Home</a></li>
+                        <li><a href="{% url 'product_list' %}" class="footer-link">Products</a></li>
+                        <li><a href="{% url 'about' %}" class="footer-link">About</a></li>
+                        <li><a href="{% url 'contact' %}" class="footer-link">Support</a></li>
+                    </ul>
+                </div>
+
+                <!-- COL 2 -->
+                <div>
+                    <h4 class="text-white font-semibold text-sm mb-6 flex items-center gap-2">
+                        <span class="w-1 h-4 bg-purple-600 rounded-full"></span>
+                        Compliance
+                    </h4>
+
+                    <ul class="space-y-3">
+                        <li><a href="{% url 'privacy_policy' %}" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="{% url 'shipping_policy' %}" class="footer-link">Shipping</a></li>
+                        <li><a href="{% url 'refund_policy' %}" class="footer-link">Refund</a></li>
+                        <li><a href="{% url 'terms_conditions' %}" class="footer-link">Terms</a></li>
+                    </ul>
+                </div>
+
+                <!-- COL 3 -->
+                <div>
+                    <h4 class="text-white font-semibold text-sm mb-6 flex items-center gap-2">
+                        <span class="w-1 h-4 bg-purple-600 rounded-full"></span>
+                        Contact
+                    </h4>
+
+                    <div class="space-y-4">
+                        <div>
+                            <span class="text-[10px] text-slate-500 uppercase tracking-widest">Email</span>
+                            <a href="mailto:support@trivedatatva.com" class="block text-white text-sm font-medium hover:text-purple-400 transition">
+                                support@trivedatatva.com
+                            </a>
+                        </div>
+
+                        <div>
+                            <span class="text-[10px] text-slate-500 uppercase tracking-widest">Phone</span>
+                            <p class="text-white text-sm font-medium hover:text-purple-400 transition">
+                                +91 98234 56710
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- BOTTOM -->
+        <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+
+            <p class="text-[12px] text-slate-500 text-center md:text-left">
+                © 2026 Trivedatatva Pharmaceuticals Private Limited
+            </p>
+
+            <p class="text-[12px] text-slate-600 text-center md:text-right">
+                All rights reserved
+            </p>
+
+        </div>
+    </div>
+</footer>
+
+<!-- FOOTER LINK STYLE -->
+<style>
+.footer-link {
+    @apply text-slate-400 text-[13px] font-medium flex items-center gap-2 transition-all duration-300;
+}
+.footer-link:hover {
+    @apply text-white translate-x-1;
+}
+</style>

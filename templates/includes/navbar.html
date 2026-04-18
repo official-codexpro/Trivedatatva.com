@@ -1,0 +1,372 @@
+{% load static %}
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<header class="sticky top-0 w-full z-[999999] bg-white border-b border-slate-100 shadow-sm">
+    <!-- TOP ROW: Logo, Pincode, and Actions -->
+    <div class="max-w-[1400px] xl:max-w-[1500px] mx-auto px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+        
+        <!-- Left Section: Logo & Pincode -->
+        <div class="flex items-center gap-6 lg:gap-10">
+            <!-- Logo -->
+            <a href="{% url 'home' %}" class="flex items-center gap-3 shrink-0">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-purple-200 blur-lg opacity-40 rounded-full"></div>
+                    <img src="/media/products/logo.png" alt="Logo" class="relative w-11 h-11 object-contain rounded-lg">
+                </div>
+               <div class="flex flex-col leading-none">
+    
+    <!-- Brand Name -->
+    <span class="text-[20px] font-extrabold text-slate-900 tracking-tight">
+        TRIVEDATATVA
+    </span>
+
+    <!-- Tagline -->
+    <span class="text-[9px] text-slate-500 font-semibold uppercase tracking-[0.38em] mt-1">
+        Pharmaceuticals
+    </span>
+
+</div>
+            </a>
+
+            <!-- Pincode/Tracking (PharmEasy Style) -->
+            <div class="hidden md:flex items-center gap-4 border-l border-slate-200 pl-6 lg:pl-10">
+                <div class="flex flex-col">
+                    <span class="text-[9px] text-slate-400 font-bold uppercase flex items-center gap-1.5">
+                        <i class="fa-solid fa-bolt-lightning text-amber-400"></i> Express delivery 
+                    </span>
+                    <a href="{% url 'track_order' %}" class="text-sm font-bold text-slate-800 flex items-center gap-2 hover:text-purple-600 transition-colors">
+                      Track Order 
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Section: Actions -->
+        <div class="flex items-center gap-2 sm:gap-8">
+            <!-- Login/User -->
+            <div class="hidden lg:flex items-center">
+                {% if user.is_authenticated %}
+                <a href="{% url 'dashboard' %}" class="flex items-center gap-2.5 text-slate-600 hover:text-purple-600 transition-all group">
+                    <div class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-50 group-hover:bg-purple-50 transition-colors">
+                        <i class="fa-regular fa-circle-user text-xl"></i>
+                    </div>
+                    <span class="hidden sm:block text-[13px] font-bold">My Account</span>
+                </a>
+                {% else %}
+                <a href="{% url 'login' %}" class="flex items-center gap-2.5 text-slate-600 hover:text-purple-600 transition-all group">
+                    <div class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-50 group-hover:bg-purple-50 transition-colors">
+                        <i class="fa-regular fa-circle-user text-xl"></i>
+                    </div>
+                    <div class="hidden sm:flex flex-col">
+                        <span class="text-[10px] text-slate-400 font-bold leading-none mb-1">Welcome</span>
+                        <span class="text-[13px] font-bold leading-none">Hello, Log in</span>
+                    </div>
+                </a>
+                {% endif %}
+            </div>
+
+            <!-- Offers -->
+        
+
+            <!-- Cart -->
+            <a href="{% url 'cart:cart_detail' %}" class="relative flex items-center gap-2.5 text-slate-600 hover:text-purple-600 transition-all group">
+                <div class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-50 group-hover:bg-purple-50 transition-colors">
+                    <i class="fa-solid fa-cart-shopping text-lg"></i>
+                    {% if cart_count %}
+                    <span class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-red-500 text-white text-[10px] flex items-center justify-center font-black border-2 border-white">
+                        {{ cart_count }}
+                    </span>
+                    {% endif %}
+                </div>
+                <span class="hidden sm:block text-[13px] font-bold">Cart</span>
+            </a>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="openSidebar" class="lg:hidden ml-2 w-10 h-10 flex items-center justify-center rounded-full bg-slate-900 text-white">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- BOTTOM ROW: Navigation Links (Sticky on Desktop) -->
+<div class="hidden lg:block border-t border-gray-200 bg-white">
+    <div class="max-w-[1400px] xl:max-w-[1500px] mx-auto px-8 py-3.5">
+        
+        <!-- LEFT SHIFT (2-3%) -->
+        <ul class="flex items-center justify-start gap-10 xl:gap-12 text-[14px] font-semibold text-black ml-[3%]">
+
+            <!-- HOME -->
+            <li>
+                <a href="{% url 'home' %}" 
+                   class="relative hover:text-purple-600 transition-all duration-300 after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-purple-600 after:transition-all after:duration-300 hover:after:w-full">
+                    Home
+                </a>
+            </li>
+            
+            <!-- CATEGORIES -->
+            <li class="relative group">
+                <button class="flex items-center gap-2 hover:text-purple-600 transition-all duration-300 relative after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-purple-600 after:transition-all after:duration-300 group-hover:after:w-full">
+                    Categories 
+                    <i class="fa-solid fa-chevron-down text-[10px] opacity-50 group-hover:rotate-180 transition-transform"></i>
+                </button>
+
+                <!-- DROPDOWN -->
+                <div class="absolute left-0 top-full pt-5 opacity-0 invisible 
+                            group-hover:opacity-100 group-hover:visible 
+                            transition-all duration-300 z-[100]">
+
+                    <div class="bg-white/95 backdrop-blur-xl border border-purple-100/50 
+                                shadow-[0_20px_60px_rgba(0,0,0,0.08)] 
+                                rounded-2xl p-2 w-60 
+                                transform scale-95 group-hover:scale-100 transition-all duration-300">
+
+                        <!-- ITEM -->
+                        <a href="/products/Jeeva_Bloom_F_Syrup/" 
+                           class="flex items-center gap-4 p-3 rounded-xl hover:bg-gradient-to-r hover:from-purple-50 hover:to-white transition-all duration-300 text-gray-900 font-medium text-sm">
+                            
+                            <div class="w-10 h-10 bg-gradient-to-br from-purple-100 to-purple-50 rounded-xl flex items-center justify-center shadow-inner text-purple-600">
+                                <iconify-icon icon="mdi:bottle-tonic-plus-outline" width="20"></iconify-icon>
+                            </div>
+
+                            <span>Syrup</span>
+                        </a>
+
+                        <a href="/products/Jeeva_Bloom_F_Capsule/" 
+                           class="flex items-center gap-4 p-3 rounded-xl hover:bg-gradient-to-r hover:from-purple-50 hover:to-white transition-all duration-300 text-gray-900 font-medium text-sm">
+                            
+                            <div class="w-10 h-10 bg-gradient-to-br from-purple-100 to-purple-50 rounded-xl flex items-center justify-center shadow-inner text-purple-600">
+                                <iconify-icon icon="ph:pill" width="20"></iconify-icon>
+                            </div>
+
+                            <span>Capsule</span>
+                        </a>
+
+                    </div>
+                </div>
+            </li>
+
+            <!-- PRODUCTS -->
+            <li>
+                <a href="{% url 'product_list' %}" 
+                   class="relative hover:text-purple-600 transition-all duration-300 after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-purple-600 after:transition-all after:duration-300 hover:after:w-full">
+                    Products
+                </a>
+            </li>
+
+            <!-- ABOUT -->
+            <li>
+                <a href="{% url 'about' %}" 
+                   class="relative hover:text-purple-600 transition-all duration-300 after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-purple-600 after:transition-all after:duration-300 hover:after:w-full">
+                    About
+                </a>
+            </li>
+
+            <!-- SUPPORT -->
+            <li>
+                <a href="{% url 'contact' %}" 
+                   class="relative hover:text-purple-600 transition-all duration-300 after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-purple-600 after:transition-all after:duration-300 hover:after:w-full">
+                    Support
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+</header>
+
+<!-- MOBILE SIDEBAR -->
+<div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[1000000] hidden opacity-0 transition-opacity duration-300" style="display: none;"></div>
+
+<div id="sidebar" class="fixed top-0 right-0 h-full w-[85%] max-w-[360px] bg-white z-[1000001] translate-x-full transition-transform duration-500 ease-in-out shadow-2xl flex flex-col">
+    
+    <!-- Sidebar Header -->
+    <div class="p-6 border-b border-slate-50 flex justify-between items-center bg-slate-50/50">
+        <div class="flex flex-col">
+            <span class="text-[10px] font-black text-purple-600 uppercase tracking-[0.2em]">Trivedatatva</span>
+            <span class="text-lg font-black text-slate-900">Main Menu</span>
+        </div>
+        <button id="closeSidebar" class="w-10 h-10 flex items-center justify-center rounded-full bg-white text-slate-400 shadow-sm border border-slate-100">
+            <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+    </div>
+
+    <!-- Sidebar Content (Scrollable) -->
+    <div class="flex-1 overflow-y-auto p-4 space-y-6">
+        
+        <!-- Navigation Section -->
+        <div>
+            <span class="px-4 text-[11px] font-black text-slate-400 uppercase tracking-widest block mb-2">Navigation</span>
+            <div class="space-y-1">
+                <a href="{% url 'home' %}" class="flex items-center gap-3 p-4 rounded-2xl hover:bg-purple-50 transition-all font-bold text-slate-700">
+                    <i class="fa-solid fa-house text-purple-500 w-5"></i> Home
+                </a>
+
+                <!-- Collapsible Categories -->
+                <div>
+                    <button id="mobileCategoryToggle" class="w-full flex items-center justify-between p-4 rounded-2xl hover:bg-purple-50 transition-all font-bold text-slate-700">
+                        <span class="flex items-center gap-3">
+                            <i class="fa-solid fa- degrid-view text-purple-500 w-5"></i> Categories
+                        </span>
+                        <i id="mobileCategoryArrow" class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300"></i>
+                    </button>
+                    
+                    <!-- Dropdown Items -->
+                    <div id="mobileCategoryMenu" class="overflow-hidden transition-all duration-300 max-h-0 bg-slate-50/50 rounded-2xl mx-2">
+                        <div class="p-2 space-y-1">
+    
+<a href="/products/Jeeva_Bloom_F_Syrup/" 
+   class="flex items-center gap-3 p-3 hover:bg-white rounded-xl transition-all">
+    
+    <!-- Syrup Icon -->
+    <iconify-icon icon="mdi:bottle-tonic-plus-outline" 
+                  width="20" height="20" 
+                  style="color:#7c3aed;">
+    </iconify-icon>
+
+    <div class="flex flex-col">
+        <span class="text-sm font-bold text-slate-800">Syrup</span>
+    </div>
+</a>
+
+<a href="/products/Jeeva_Bloom_F_Capsule/" 
+   class="flex items-center gap-3 p-3 hover:bg-white rounded-xl transition-all">
+    
+    <!-- Capsule Icon -->
+    <iconify-icon icon="ph:pill" 
+                  width="20" height="20" 
+                  style="color:#7c3aed;">
+    </iconify-icon>
+
+    <div class="flex flex-col">
+        <span class="text-sm font-bold text-slate-800">Capsule</span>
+    </div>
+</a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="{% url 'product_list' %}" class="flex items-center gap-3 p-4 rounded-2xl hover:bg-purple-50 transition-all font-bold text-slate-700">
+                    <i class="fa-solid fa-microscope text-purple-500 w-5"></i> Products
+                </a>
+                <a href="{% url 'about' %}" class="flex items-center gap-3 p-4 rounded-2xl hover:bg-purple-50 transition-all font-bold text-slate-700">
+                    <i class="fa-solid fa-circle-info text-purple-500 w-5"></i> About Us
+                </a>
+                <a href="{% url 'contact' %}" class="flex items-center gap-3 p-4 rounded-2xl hover:bg-purple-50 transition-all font-bold text-slate-700">
+                    <i class="fa-solid fa-headset text-purple-500 w-5"></i> Support
+                </a>
+            </div>
+        </div>
+
+        <!-- Featured Section (Best Sellers) -->
+        <div class="px-2">
+            <span class="px-2 text-[11px] font-black text-slate-400 uppercase tracking-widest block mb-3">Top Products</span>
+          <a href="/products/Jeeva_Bloom_F_Capsule/" 
+   class="flex items-center gap-4 p-3 rounded-2xl border border-slate-100 bg-gradient-to-r from-white to-purple-50/30">
+    
+    <!-- Capsule Icon -->
+    <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm border border-purple-100">
+        <iconify-icon icon="ph:pill" 
+                      width="22" height="22" 
+                      style="color:#7c3aed;">
+        </iconify-icon>
+    </div>
+
+    <div class="flex flex-col">
+        <span class="font-bold text-slate-800 text-sm">Jeeva Bloom-F Capsule</span>
+        <span class="text-[11px] text-purple-600 font-bold">Best for Stress Relief</span>
+    </div>
+
+    <i class="fa-solid fa-arrow-right ml-auto text-slate-300 text-xs px-2"></i>
+</a>
+        </div>
+    </div>
+
+    <!-- Sidebar Footer -->
+    <div class="p-6 bg-white border-t border-slate-100 space-y-3">
+        {% if not user.is_authenticated %}
+            <a href="{% url 'signup' %}" class="w-full py-4 bg-purple-600 text-white text-center font-bold rounded-2xl shadow-lg shadow-purple-100 block transition-transform active:scale-95">Create Account</a>
+            <a href="{% url 'login' %}" class="w-full py-4 bg-slate-50 text-slate-600 text-center font-bold rounded-2xl block border border-slate-200 active:bg-slate-100">Sign In</a>
+        {% else %}
+            <a href="{% url 'dashboard' %}" class="w-full py-4 bg-slate-900 text-white text-center font-bold rounded-2xl block shadow-lg active:scale-95 transition-transform">My Dashboard</a>
+            <a href="{% url 'logout' %}" class="block text-center text-xs font-bold text-red-400 mt-2">Sign Out</a>
+        {% endif %}
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    // ================= ELEMENTS =================
+    const elements = {
+        openBtn: document.getElementById("openSidebar"),
+        closeBtn: document.getElementById("closeSidebar"),
+        sidebar: document.getElementById("sidebar"),
+        overlay: document.getElementById("sidebar-overlay"),
+        catToggle: document.getElementById("mobileCategoryToggle"),
+        catMenu: document.getElementById("mobileCategoryMenu"),
+        catArrow: document.getElementById("mobileCategoryArrow")
+    };
+
+    // ================= CORE FUNCTIONS =================
+    
+    // Sidebar Open Logic
+    const openSidebar = () => {
+        elements.sidebar.style.transform = "translateX(0)";
+        elements.overlay.style.display = "block";
+        // Timeout zaroori hai taaki opacity transition trigger ho sake
+        setTimeout(() => {
+            elements.overlay.style.opacity = "1";
+        }, 10);
+        document.body.style.overflow = "hidden"; // Scroll Lock
+    };
+
+    // Sidebar Close Logic
+    const closeSidebar = () => {
+        elements.sidebar.style.transform = "translateX(100%)";
+        elements.overlay.style.opacity = "0";
+        setTimeout(() => {
+            elements.overlay.style.display = "none";
+        }, 300); // 300ms transition time ke baad hide karega
+        document.body.style.overflow = ""; // Scroll Unlock
+    };
+
+    // ================= EVENT LISTENERS =================
+
+    // Open/Close Trigger
+    if (elements.openBtn) elements.openBtn.onclick = openSidebar;
+    if (elements.closeBtn) elements.closeBtn.onclick = closeSidebar;
+    if (elements.overlay) elements.overlay.onclick = closeSidebar;
+
+    // ESC Key Support
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeSidebar();
+    });
+
+    // ================= CATEGORY DROPDOWN LOGIC =================
+    if (elements.catToggle && elements.catMenu) {
+        elements.catToggle.onclick = (e) => {
+            e.preventDefault();
+            
+            // maxHeight check karke open/close toggle karna
+            const isOpen = elements.catMenu.style.maxHeight !== "0px" && elements.catMenu.style.maxHeight !== "";
+
+            if (isOpen) {
+                elements.catMenu.style.maxHeight = "0px";
+                if (elements.catArrow) elements.catArrow.style.transform = "rotate(0deg)";
+            } else {
+                // scrollHeight exact content height calculate karta hai
+                elements.catMenu.style.maxHeight = elements.catMenu.scrollHeight + "px";
+                if (elements.catArrow) elements.catArrow.style.transform = "rotate(180deg)";
+            }
+        };
+    }
+
+    // ================= CLEANUP ON RESIZE =================
+    // Agar mobile menu khula ho aur user window badi kare (Desktop mode), toh menu band ho jaye
+    window.onresize = () => {
+        if (window.innerWidth >= 1024) closeSidebar();
+    };
+
+    // Auto-close sidebar when any link inside it is clicked
+    const links = elements.sidebar.querySelectorAll("a");
+    links.forEach(link => {
+        link.onclick = () => closeSidebar();
+    });
+});</script>
